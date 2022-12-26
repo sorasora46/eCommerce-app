@@ -8,5 +8,6 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.post("/register", register);
+// TODO: create route for fetching user data
 
 export default router;
