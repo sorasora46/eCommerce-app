@@ -12,5 +12,10 @@ export class UsersService {
     return this.userModel.find().exec();
   }
 
+  async findOne(username: string): Promise<User | NotFoundException> {
+    const result = await this.userModel.findOne({ username: username });
+    if (!result) return new NotFoundException('Database: Could not find user') 
+    return result;
   }
+
 }
