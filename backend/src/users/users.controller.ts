@@ -7,7 +7,7 @@ import { NotFoundException } from '@nestjs/common/exceptions';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get('findusers')
+  @Get('findall')
   async findAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
