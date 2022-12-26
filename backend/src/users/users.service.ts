@@ -1,7 +1,8 @@
-import { Model } from "mongoose"
+import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from "@nestjs/mongoose"
-import { User, UserDocument } from "./user.schema"
+import { InjectModel } from '@nestjs/mongoose';
+import { User, UserDocument } from './user.schema';
+import { NotFoundException } from '@nestjs/common/exceptions';
 
 @Injectable()
 export class UsersService {
