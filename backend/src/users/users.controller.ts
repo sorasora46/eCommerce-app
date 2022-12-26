@@ -12,8 +12,5 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get('/hello')
-  getHello(): string {
-    return this.usersService.getHello()
   }
 }
