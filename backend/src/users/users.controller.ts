@@ -12,5 +12,18 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('/findone')
+  async findOne(
+    @Body('username') username: string,
+    @Body('email') email: string,
+  ): Promise<User | NotFoundException> {
+    try {
+      let user: User | NotFoundException;
+      if (username) user = await this.usersService.findOne(username);
+      if (email) user = await this.usersService.findOne(email);
+      return user;
+    } catch (error) {
+      return error 
+    }
   }
 }
