@@ -12,7 +12,5 @@ export class UsersService {
     return this.userModel.find().exec();
   }
 
-  getHello(): string {
-    return "Hello!"
   }
 }
