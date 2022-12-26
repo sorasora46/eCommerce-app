@@ -6,6 +6,7 @@ interface Product {
   pPrice: number;
   pImages: string[];
   pOwnerId: string;
+  pAmount: number;
 }
 
 const productSchema = new Schema<Product>({
@@ -14,6 +15,7 @@ const productSchema = new Schema<Product>({
   pPrice: { type: Number, required: true },
   pImages: { type: [String], required: true },
   pOwnerId: { type: String, required: true },
+  pAmount: { type: Number, required: true },
 });
 
 export const Product = model("Product", productSchema)
