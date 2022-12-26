@@ -1,10 +1,9 @@
 import express, { Express, Request, Response } from "express";
+import authenticationRoute from "./routers/auth/index"
 
 const app: Express = express();
 const PORT = 8000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hi")
-})
+app.use("/login", authenticationRoute)
 
 app.listen(PORT, console.log(`Server running at PORT:${PORT}`))
