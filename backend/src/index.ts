@@ -5,14 +5,14 @@ import cartRoute from "./services/carts/index.js";
 import productRoute from "./services/products/index.js";
 import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
-import userRoute from "./services/users/index.js"
+import userRoute from "./services/users/index.js";
 
 const app: Express = express();
 const PORT = 8000;
 
-mongoose.set("strictQuery", false)
+mongoose.set("strictQuery", false);
 
-app.use(express.json())
+app.use(express.json());
 
 app.use("/login", authenticationRoute);
 app.use("/cart", cartRoute);

@@ -10,7 +10,6 @@ export const createUser = async (
   user_dateOfBirth: Date,
   user_profileImage: string
 ) => {
-
   await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
   const sameEmailUser = await User.findOne({ email: user_email });

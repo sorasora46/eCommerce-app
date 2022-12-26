@@ -18,4 +18,4 @@ const userSchema = new Schema<User>({
   profileImage: { type: String, required: false },
 });
 
-export const User = model("User", userSchema)
+export const User = model("User", userSchema);
