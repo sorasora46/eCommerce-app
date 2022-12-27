@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface User {
+export interface IUser {
   userId: string;
   email: string;
   fname: string;
@@ -10,7 +10,7 @@ interface User {
   profileImage?: string;
 }
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<IUser>({
   userId: { type: String, required: true },
   email: { type: String, required: true },
   fname: { type: String, required: true },
