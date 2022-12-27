@@ -1,9 +1,8 @@
-import express, { Request, Response, NextFunction } from "express";
+import { Router } from "express";
+import { handleLogin } from "./controllers/handleLogin.js";
 
-const router = express.Router();
+const router = Router();
 
-router.post("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("login route");
-});
+router.post("/", handleLogin);
 
 export default router;
