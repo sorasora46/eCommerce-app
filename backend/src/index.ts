@@ -21,4 +21,4 @@ app.use("/shop", shopRoute);
 app.use("/transaction", transactionRoute);
 app.use("/user", userRoute);
 
-app.listen(PORT, console.log(`Server running at PORT:${PORT}`));
+app.listen(PORT, () => console.log(`Server running at PORT:${PORT}`));
