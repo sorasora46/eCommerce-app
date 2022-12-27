@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-app.use("/login", authenticationRoute);
+app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
 app.use("/product", productRoute);
 app.use("/shop", shopRoute);
