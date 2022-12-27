@@ -25,7 +25,12 @@ export const handleLogin = async (req: Request, res: Response) => {
       { expiresIn: expiration }
     );
 
-    res.json({ accessToken: accessToken });
+    const refreshToken = jsonwebtoken.sign(
+      { ...user },
+      "very secret refresh_token_secret string"
+    );
+
+    res.json({ accessToken: accessToken, refreshToken: refreshToken });
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ error: error.message });
