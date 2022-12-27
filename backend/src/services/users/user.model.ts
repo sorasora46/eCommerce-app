@@ -6,6 +6,7 @@ interface User {
   fname: string;
   lname: string;
   dateOfBirth: Date;
+  role: string;
   profileImage?: string;
 }
 
@@ -15,6 +16,7 @@ const userSchema = new Schema<User>({
   fname: { type: String, required: true },
   lname: { type: String, required: true },
   dateOfBirth: { type: Date, required: true },
+  role: { type: String, required: false },
   profileImage: { type: String, required: false },
 });
 
