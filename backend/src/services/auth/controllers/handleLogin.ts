@@ -13,8 +13,8 @@ export const handleLogin = async (req: Request, res: Response) => {
     if (!hashedPassword) throw new Error("Incorrect email");
     if (!(await bcrypt.compare(password, hashedPassword)))
       throw new Error("Incorrect password");
-    
-    res.send("login success")
+
+    res.send("login success");
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ error: error.message });
