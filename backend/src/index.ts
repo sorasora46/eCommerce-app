@@ -6,6 +6,7 @@ import productRoute from "./services/products/index.js";
 import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
+import { IUser } from "./services/users/user.model.js";
 
 const app: Express = express();
 const PORT = 8000;
@@ -13,6 +14,14 @@ const PORT = 8000;
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
+
+declare global {
+  namespace Express {
+    export interface Request {
+      user?: IUser
+    }
+  }
+}
 
 app.use("/login", authenticationRoute);
 app.use("/cart", cartRoute);
