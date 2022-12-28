@@ -46,7 +46,6 @@ export const createUser = async (
   const newAuthUser = await authUser.create({
     email: user_email,
     hashedPassword: hashedPassword,
-    salt: salt,
   });
 
   newAuthUser
