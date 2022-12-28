@@ -17,7 +17,7 @@ export const handleLogin = async (req: Request, res: Response) => {
       throw new Error("Incorrect password");
 
     const user = await User.findOne({ email: email });
-    const expiration = "12h";
+    const expiration = "6h";
 
     const accessToken = jsonwebtoken.sign(
       { ...user },
