@@ -43,6 +43,19 @@ export const handleLogin = async (req: Request, res: Response) => {
       .then()
       .catch((err) => console.log(err.message));
 
+    // TODO: store tokens inside httpOnly cookie
+    // TODO: change logic to extract token from request object
+    // res
+    //   .cookie("accessToken", `Bearer ${accessToken}`, {
+    //     expires: new Date(Date.now() + 6 * 3600000),
+    //     httpOnly: true,
+    //     secure: true,
+    //   })
+    //   .cookie("refreshToken", `${refreshToken}`, {
+    //     expires: new Date(Date.now() + 24 * 3600000),
+    //     httpOnly: true,
+    //     secure: true,
+    //   });
     res.json({ accessToken: accessToken, refreshToken: refreshToken });
   } catch (error: any) {
     console.log(error);
