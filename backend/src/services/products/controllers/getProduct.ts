@@ -21,6 +21,6 @@ export const getProduct = async (req: Request, res: Response) => {
     return res.json(products);
   } catch (error: any) {
     console.log(error);
-    res.status(400).json({ message: error.toString() });
+    res.status(400).json({ message: error.message });
   }
 };

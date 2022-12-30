@@ -22,6 +22,6 @@ export const removeProduct = async (req: Request, res: Response) => {
     return res.json(result);
   } catch (error: any) {
     console.log(error);
-    res.status(400).json({ message: error.toString() });
+    res.status(400).json({ message: error.message });
   }
 };
