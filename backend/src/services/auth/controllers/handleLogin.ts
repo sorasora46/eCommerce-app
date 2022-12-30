@@ -43,6 +43,7 @@ export const handleLogin = async (req: Request, res: Response) => {
       .then()
       .catch((err) => console.log(err.message));
 
+    // TODO: create frontend for testing cookies
     // TODO: store tokens inside httpOnly cookie
     // TODO: change logic to extract token from request object
     // res
