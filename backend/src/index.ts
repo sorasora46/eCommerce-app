@@ -8,6 +8,7 @@ import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
 import { IUser } from "./services/users/user.model.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app: Express = express();
 const PORT = 8000;
@@ -15,6 +16,7 @@ const PORT = 8000;
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   cors({
     origin: ["http://127.0.0.1:5173"],
