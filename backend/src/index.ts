@@ -7,6 +7,7 @@ import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
 import { IUser } from "./services/users/user.model.js";
+import cors from "cors";
 
 const app: Express = express();
 const PORT = 8000;
@@ -14,6 +15,11 @@ const PORT = 8000;
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://127.0.0.1:5173"],
+  })
+);
 
 declare global {
   namespace Express {
