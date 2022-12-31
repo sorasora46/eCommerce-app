@@ -1,10 +1,16 @@
 import { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const response = await axios.post("http://localhost:8000/auth/login", {
+      email: username,
+      password: password,
+    });
+    console.log(response)
   };
 
   return (
