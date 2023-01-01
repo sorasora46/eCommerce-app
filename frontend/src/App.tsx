@@ -47,6 +47,16 @@ function App() {
         <br />
         <button type="submit">Login</button>
       </form>
+      <button
+        onClick={async () => {
+          const res = await axios.get("http://127.0.0.1:8000/auth/test", {
+            withCredentials: true,
+          });
+          console.log(res);
+        }}
+      >
+        test cookie
+      </button>
     </div>
   );
 }
