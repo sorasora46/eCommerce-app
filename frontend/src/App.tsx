@@ -6,11 +6,15 @@ function App() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
-    const response = await axios.post("http://localhost:8000/auth/login", {
-      email: username,
-      password: password,
-    });
-    console.log(response)
+    const response = await axios.post(
+      "http://localhost:8000/auth/login",
+      {
+        email: username,
+        password: password,
+      },
+      { withCredentials: true }
+    );
+    console.log(response);
   };
 
   return (
