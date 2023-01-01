@@ -6,5 +6,9 @@ const router = Router();
 
 router.post("/login", handleLogin);
 router.post("/refresh", getNewAccessToken);
+router.get("/test", (req, res) => {
+  console.log(req.cookies);
+  res.json({ cookie: req.cookies});
+});
 
 export default router;
