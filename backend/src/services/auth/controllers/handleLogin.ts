@@ -46,18 +46,16 @@ export const handleLogin = async (req: Request, res: Response) => {
     // TODO: create frontend for testing cookies
     // TODO: store tokens inside httpOnly cookie
     // TODO: change logic to extract token from request object
-    // res
-    //   .cookie("accessToken", `Bearer ${accessToken}`, {
-    //     expires: new Date(Date.now() + 6 * 3600000),
-    //     httpOnly: true,
-    //     secure: true,
-    //   })
-    //   .cookie("refreshToken", `${refreshToken}`, {
-    //     expires: new Date(Date.now() + 24 * 3600000),
-    //     httpOnly: true,
-    //     secure: true,
-    //   });
-    res.json({ accessToken: accessToken, refreshToken: refreshToken });
+    res
+      .cookie("access_token", `Bearer ${accessToken}`, {
+        maxAge: 3600000,
+        httpOnly: true,
+      })
+      .cookie("refresh_token", `${refreshToken}`, {
+        maxAge: 6 * 3600000,
+        httpOnly: true,
+      })
+      .json({ message: "login success" });
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ error: error.message });
