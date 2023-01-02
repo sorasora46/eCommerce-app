@@ -5,16 +5,18 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async () => {
-    const response = await axios.post(
-      "http://localhost:8000/auth/login",
-      {
-        email: username,
-        password: password,
-      },
-      { withCredentials: true }
-    );
-    console.log(response);
+  const handleSubmit = () => {
+    axios
+      .post(
+        "http://localhost:8000/auth/login",
+        {
+          email: username,
+          password: password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -48,11 +50,13 @@ function App() {
         <button type="submit">Login</button>
       </form>
       <button
-        onClick={async () => {
-          const res = await axios.get("http://127.0.0.1:8000/auth/test", {
-            withCredentials: true,
-          });
-          console.log(res);
+        onClick={() => {
+          axios
+            .get("http://localhost:8000/auth/test", {
+              withCredentials: true,
+            })
+            .then((res) => console.log(res))
+            .catch((err) => console.error(err));
         }}
       >
         test cookie
