@@ -10,6 +10,5 @@ router.get("/", (req: Request, res: Response) => {
 
 router.post("/register", register);
 router.get("/getshop", getShop);
-// TODO: create route for fetching shop data
 
 export default router;
