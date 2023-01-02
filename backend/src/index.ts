@@ -16,14 +16,13 @@ const PORT = 8000;
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
-app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5173"],
     credentials: true,
-    allowedHeaders: ["Content-Type"],
+    origin: "http://127.0.0.1:5173",
   })
 );
+app.use(cookieParser());
 
 declare global {
   namespace Express {
