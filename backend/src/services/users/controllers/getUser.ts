@@ -7,10 +7,12 @@ export const getUser = async (req: Request, res: Response) => {
     // const user = req.cookies // get user info from access token from cookies
     // if (!user) throw new Error("Not authenticated")
 
+    const { userId } = req.body;
+
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
-    const result = await User.findOne({})
-    res.json(result)
+    const result = await User.findOne({ userId: userId });
+    res.json(result);
   } catch (error: any) {
     console.log(error);
     res.json({ error: error.message });
