@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from "./pages/Cart";
 import { Chat } from "./pages/Chat";
 import { Home } from "./pages/Home";
@@ -17,7 +17,7 @@ function App() {
         <Route path="/profile/:userId" element={<Profile />} />
         <Route path="/profile/:userId/cart" element={<Cart />} />
         <Route path="/chat/:userId" element={<Chat />} />
-        <Route path="*" element={<_404 />} /> 
+        <Route path="*" element={<_404 />} />
       </Routes>
     </BrowserRouter>
   );
