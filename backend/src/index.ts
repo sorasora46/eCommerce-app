@@ -12,6 +12,16 @@ import cookieParser from "cookie-parser";
 
 const app: Express = express();
 const PORT = 8000;
+const domain = "127.0.0.1"; // specify node server to set cookie at this domain
+/** to set cookie
+ * 1. use cors
+ * 2. set credential to true both frontend and backend (in cors config)
+ * 3. set domain in app.listen or add domain in cookie option ({ domain: domain })
+ * 4. set httpOnly (optional)
+ * 
+ * to retrieve cookies from client
+ * 1. install cookieParser
+ */
 
 mongoose.set("strictQuery", false);
 
@@ -39,4 +49,4 @@ app.use("/shop", shopRoute);
 app.use("/transaction", transactionRoute);
 app.use("/user", userRoute);
 
-app.listen(PORT, () => console.log(`Server running at PORT:${PORT}`));
+app.listen(PORT, domain, () => console.log(`Server running at PORT:${PORT}`));
