@@ -16,6 +16,8 @@ export const Login = () => {
             )
             .then((res) => console.log(res))
             .catch((err) => console.error(err));
+          setEmail("");
+          setPassword("");
           e.preventDefault();
         }}
       >
