@@ -33,7 +33,7 @@ export const handleLogin = async (req: Request, res: Response) => {
         maxAge: 1000 * 60,
         httpOnly: true,
       })
-      .json({ message: "login success" });
+      .json({ redirectUrl: "http://127.0.0.1:5173", loginSuccess: true });
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ error: error.message });
