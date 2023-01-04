@@ -14,7 +14,9 @@ export const Login = () => {
               { email: email, password: password },
               { withCredentials: true }
             )
-            .then((res) => console.log(res.data))
+            .then((res) => {
+              window.location.href = res.data.redirectUrl;
+            })
             .catch((err) => console.error(err));
           setEmail("");
           setPassword("");
@@ -43,7 +45,9 @@ export const Login = () => {
             .get("http://127.0.0.1:8000/auth/test", {
               withCredentials: true,
             })
-            .then((res) => console.log(res.data))
+            .then((res) => {
+              window.location.href = res.data.redirectUrl;
+            })
             .catch((err) => console.error(err));
         }}
       >
