@@ -23,11 +23,13 @@ export const handleLogin = async (req: Request, res: Response) => {
 
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
-        maxAge: 3600000,
+        // maxAge: 3600000,
+        maxAge: 1000 * 10,
         httpOnly: true,
       })
       .cookie("refresh_token", `${refreshToken}`, {
-        maxAge: 6 * 3600000,
+        // maxAge: 6 * 3600000,
+        maxAge: 1000 * 60,
         httpOnly: true,
       })
       .json({ message: "login success" });
