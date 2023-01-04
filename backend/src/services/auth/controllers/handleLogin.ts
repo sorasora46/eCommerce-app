@@ -43,8 +43,6 @@ export const handleLogin = async (req: Request, res: Response) => {
       .then()
       .catch((err) => console.log(err.message));
 
-    // TODO: store tokens inside httpOnly cookie
-    // TODO: change logic to extract token from request object
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
         maxAge: 3600000,
