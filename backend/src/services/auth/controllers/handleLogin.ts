@@ -8,6 +8,16 @@ import { storedRefreshToken } from "../models/refreshToken.model.js";
 
 export const handleLogin = async (req: Request, res: Response) => {
   try {
+    const { access_token, refresh_token } = req.cookies;
+
+    // If both tokens exist then redirect to home page
+    if (access_token && refresh_token) {
+      return res.json({
+        redirectUrl: "http://127.0.0.1:5173",
+        alreadyLogin: true,
+      });
+    }
+
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
     const { email, password } = req.body;
