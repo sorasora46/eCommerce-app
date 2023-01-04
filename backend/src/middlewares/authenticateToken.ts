@@ -18,22 +18,21 @@ export const authenticateToken = (
       });
     }
 
-    // Get a new access token
-    if (!access_token && refresh_token) {
-      return res.redirect(302, "/auth/refresh");
+    // Verify the token when access token is not expired
+    if (access_token) {
+      const token = access_token.split(" ")[1];
+      jsonwebtoken.verify(
+        token,
+        "very secret access_token_secret string",
+        (err: any, user: any) => {
+          if (err) throw err;
+          next();
+        }
+      );
     }
 
-    // Verify the token when access token is not expired
-    const token = access_token.split(" ")[1];
-    jsonwebtoken.verify(
-      token,
-      "very secret access_token_secret string",
-      (err: any, user: any) => {
-        if (err) throw err;
-        req.user = user;
-        next();
-      }
-    );
+    // Proceed further if above conditions don't satisfied
+    next();
   } catch (error: any) {
     console.log(error);
     res.json({ message: error.message });
