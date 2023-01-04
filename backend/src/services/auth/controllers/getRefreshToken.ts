@@ -46,7 +46,8 @@ export const getNewAccessToken = async (
           { expiresIn: expiration }
         );
 
-        res.json({ accessToken: accessToken });
+        res.cookie("access_token", `Bearer ${accessToken}`);
+        next();
       }
     );
   } catch (error: any) {
