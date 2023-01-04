@@ -6,11 +6,13 @@ import bcrypt from "bcrypt";
 
 export const getNewAccessToken = async (req: Request, res: Response) => {
   try {
-    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
-    const tokens = (await hashedToken.find({})).map((item) => item.hashedToken);
     const { refresh_token } = req.cookies;
     if (!refresh_token) throw new Error("Refresh Token not found");
 
+    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
+    const tokens = (await storedRefreshToken.find({})).map(
+      (item) => item.hashedToken
+    );
 
     // be careful here Array.find does not return boolean.
     // if the condition is not satisfied, it returns undefined.
