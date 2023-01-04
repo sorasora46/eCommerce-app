@@ -8,8 +8,8 @@ export const getNewAccessToken = async (req: Request, res: Response) => {
   try {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
     const tokens = (await hashedToken.find({})).map((item) => item.hashedToken);
+    const { refresh_token } = req.cookies;
 
-    const { refreshToken } = req.body;
     if (!refreshToken) throw new Error("Refresh Token not found");
 
     // be careful here Array.find does not return boolean.
