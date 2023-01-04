@@ -11,4 +11,4 @@ const refreshTokenSchema = new Schema<IRefreshToken>({
   userId: { type: String, required: true },
 });
 
-export const hashedToken = model("token", refreshTokenSchema);
+export const storedRefreshToken = model("Token", refreshTokenSchema);
