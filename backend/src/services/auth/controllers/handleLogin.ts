@@ -17,20 +17,24 @@ export const handleLogin = async (req: Request, res: Response) => {
     if (!(await bcrypt.compare(password, hashedPassword)))
       throw new Error("Incorrect password");
 
-    const user = await User.findOne({ email: email });
-    const expiration = "6h";
+    const user = await User.findOne({ email: email }); // user data
 
+    const expiration = "6h"; // expiration of token
+
+    // create access token
     const accessToken = jsonwebtoken.sign(
       { ...user },
       "very secret access_token_secret string",
       { expiresIn: expiration }
     );
 
+    // create refresh token
     const refreshToken = jsonwebtoken.sign(
       { ...user },
       "very secret refresh_token_secret string"
     );
 
+    // save refresh token
     const salt = await bcrypt.genSalt();
     const token = await bcrypt.hash(refreshToken, salt);
     const result = await hashedToken.create({
