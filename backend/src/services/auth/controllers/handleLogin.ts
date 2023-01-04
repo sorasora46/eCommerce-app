@@ -68,3 +68,29 @@ function createLoginToken(user: IUser, expiration: string) {
   return { accessToken: accessToken, refreshToken: refreshToken };
 }
 
+async function saveRefreshToken(refreshToken: string, userId: string) {
+  // Get old refresh token
+  const storedToken = await storedRefreshToken.findOne({ userId: userId });
+
+  // Check if the user already own refresh token
+  // If it exists then delete it
+  if (storedToken) {
+    await storedRefreshToken.findOneAndDelete({ userId: userId });
+  }
+
+  // Hash the refresh token
+  const salt = await bcrypt.genSalt();
+  const token = await bcrypt.hash(refreshToken, salt);
+
+  // Store the hashed refresh token
+  const result = await storedRefreshToken.create({
+    hashedToken: token,
+    userId: userId,
+  });
+  result
+    .save()
+    .then()
+    .catch((err) => {
+      throw err;
+    });
+}
