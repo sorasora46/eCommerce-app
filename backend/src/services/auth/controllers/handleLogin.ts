@@ -4,7 +4,7 @@ import { User } from "../../users/user.model.js";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import jsonwebtoken from "jsonwebtoken";
-import { hashedToken } from "../refreshToken.model.js";
+import { storedRefreshToken } from "../models/refreshToken.model.js";
 
 export const handleLogin = async (req: Request, res: Response) => {
   try {
