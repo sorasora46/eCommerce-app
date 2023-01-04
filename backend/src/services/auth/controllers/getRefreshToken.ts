@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import { storedRefreshToken } from "../models/refreshToken.model.js";
 import bcrypt from "bcrypt";
 
-export const getNewAccessToken = async (req: Request, res: Response) => {
+export const getNewAccessToken = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { refresh_token } = req.cookies;
     if (!refresh_token) throw new Error("Refresh Token not found");
