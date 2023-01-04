@@ -7,8 +7,8 @@ export const authenticateToken = (
   next: NextFunction
 ) => {
   try {
-    const authHeader = req.headers["authorization"];
-    if (!authHeader) throw new Error("Authorization Token not found");
+    const access_token = req.cookies.access_token;
+    const refresh_token = req.cookies.refresh_token;
 
     const token = authHeader.split(" ")[1];
     jsonwebtoken.verify(
