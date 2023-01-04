@@ -21,6 +21,7 @@ export const handleLogin = async (req: Request, res: Response) => {
     saveRefreshToken(refreshToken, user.userId);
     req.user = user; // Atttach user object to req object
 
+    // Setting cookies
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
         // maxAge: 3600000,
