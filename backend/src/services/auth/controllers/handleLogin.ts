@@ -17,6 +17,7 @@ export const handleLogin = async (req: Request, res: Response) => {
 
     const user = await User.findOne({ email: email }); // Find user data by email
     const expiration = "6h"; // Expiration of token
+    const { accessToken, refreshToken } = createLoginToken(user, expiration);
 
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
