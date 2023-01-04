@@ -17,12 +17,15 @@ export const getNewAccessToken = async (req: Request, res: Response) => {
     // be careful here Array.find does not return boolean.
     // if the condition is not satisfied, it returns undefined.
     const matchingToken = tokens.find(
-      async (token) => await bcrypt.compare(refreshToken, token)
+      async (token) => await bcrypt.compare(refresh_token, token)
     );
-    if (!!matchingToken) throw new Error("Forbidden")
+    if (!!matchingToken) throw new Error("Forbidden");
+    // hashed token in database always valid
+    // after the user login to the system, the valid token was hashed and
+    // stored in database as soon as it was created
 
     jsonwebtoken.verify(
-      refreshToken,
+      refresh_token,
       "very secret refresh_token_secret string",
       (err: any, user: any) => {
         if (err) throw err;
