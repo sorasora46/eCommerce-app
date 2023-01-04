@@ -43,6 +43,8 @@ export const handleLogin = async (req: Request, res: Response) => {
       .then()
       .catch((err) => console.log(err.message));
 
+    req.user = user;
+
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
         maxAge: 3600000,
