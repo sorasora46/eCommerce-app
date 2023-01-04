@@ -15,6 +15,8 @@ export const handleLogin = async (req: Request, res: Response) => {
       throw err;
     });
 
+    const user = await User.findOne({ email: email }); // Find user data by email
+    const expiration = "6h"; // Expiration of token
 
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
