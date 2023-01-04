@@ -10,7 +10,7 @@ export const authenticateToken = (
     const access_token = req.cookies.access_token;
     const refresh_token = req.cookies.refresh_token;
 
-    const token = authHeader.split(" ")[1];
+    const token = access_token.split(" ")[1];
     jsonwebtoken.verify(
       token,
       "very secret access_token_secret string",
