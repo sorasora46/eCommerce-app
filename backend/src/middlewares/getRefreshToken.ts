@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jsonwebtoken, { JwtPayload } from "jsonwebtoken";
 import mongoose from "mongoose";
-import { storedRefreshToken } from "../models/refreshToken.model.js";
+import { storedRefreshToken } from "../services/auth/models/refreshToken.model.js";
 import bcrypt from "bcrypt";
 
 export const getNewAccessToken = async (
