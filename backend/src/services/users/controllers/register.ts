@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { User } from "../user.model.js";
 import { nanoid } from "nanoid";
 import mongoose, { StringSchemaDefinition } from "mongoose";
-import { authUser } from "../../auth/authUser.model.js";
+import { authUser } from "../../auth/models/authUser.model.js";
 import * as bcrypt from "bcrypt";
 
 export const createUser = async (
