@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import jsonwebtoken from "jsonwebtoken";
 import mongoose from "mongoose";
-import { hashedToken } from "../refreshToken.model.js";
+import { storedRefreshToken } from "../models/refreshToken.model.js";
 import bcrypt from "bcrypt";
 
 export const getNewAccessToken = async (req: Request, res: Response) => {
