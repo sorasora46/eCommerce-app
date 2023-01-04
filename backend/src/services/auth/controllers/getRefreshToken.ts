@@ -1,5 +1,5 @@
-import jsonwebtoken from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
+import jsonwebtoken, { JwtPayload } from "jsonwebtoken";
 import mongoose from "mongoose";
 import { storedRefreshToken } from "../models/refreshToken.model.js";
 import bcrypt from "bcrypt";
@@ -12,6 +12,11 @@ export const getNewAccessToken = async (
   try {
     const { refresh_token } = req.cookies;
     if (!refresh_token) throw new Error("Refresh Token not found");
+
+    const user = jsonwebtoken.verify(
+      refresh_token,
+      "very secret refresh_token_secret string"
+    ) as JwtPayload;
 
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
     const tokens = (await storedRefreshToken.find({})).map(
