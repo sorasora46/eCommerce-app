@@ -46,7 +46,9 @@ export const Login = () => {
               withCredentials: true,
             })
             .then((res) => {
-              window.location.href = res.data.redirectUrl;
+              const { unathorized, redirectUrl } = res.data;
+              if (unathorized) window.location.href = redirectUrl;
+              else console.log(res.data);
             })
             .catch((err) => console.error(err));
         }}
