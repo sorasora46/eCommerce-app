@@ -49,3 +49,21 @@ async function validateUserData(
     throw new Error("Incorrect password");
   return true;
 }
+
+function createLoginToken(user: IUser, expiration: string) {
+  // Create access token
+  const accessToken = jsonwebtoken.sign(
+    { ...user },
+    "very secret access_token_secret string",
+    { expiresIn: expiration }
+  );
+
+  // Create refresh token
+  const refreshToken = jsonwebtoken.sign(
+    { ...user },
+    "very secret refresh_token_secret string"
+  );
+
+  return { accessToken: accessToken, refreshToken: refreshToken };
+}
+
