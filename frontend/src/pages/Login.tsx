@@ -14,7 +14,7 @@ export const Login = () => {
               { email: email, password: password },
               { withCredentials: true }
             )
-            .then((res) => console.log(res))
+            .then((res) => console.log(res.data))
             .catch((err) => console.error(err));
           setEmail("");
           setPassword("");
@@ -37,6 +37,18 @@ export const Login = () => {
         />
         <button type="submit">login</button>
       </form>
+      <button
+        onClick={() => {
+          axios
+            .get("http://127.0.0.1:8000/auth/test", {
+              withCredentials: true,
+            })
+            .then((res) => console.log(res.data))
+            .catch((err) => console.error(err));
+        }}
+      >
+        test
+      </button>
     </div>
   );
 };
