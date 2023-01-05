@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import { User } from "../services/users/user.model.js";
+import { User } from "../services/users/models/user.model.js";
 
 export const authorizeUser = async (
   req: Request,
