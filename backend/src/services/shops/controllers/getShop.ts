@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
-import { Shop } from "../shop.model.js";
+import { Shop } from "../models/shop.model.js";
 
 export const getShop = async (req: Request, res: Response) => {
   try {

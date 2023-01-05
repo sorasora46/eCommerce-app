@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Transaction } from "../transaction.model.js";
+import { Transaction } from "../models/transaction.model.js";
 import { nanoid } from "nanoid";
 import mongoose from "mongoose";
 

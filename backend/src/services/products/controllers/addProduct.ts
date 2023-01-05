@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Product } from "../product.model.js";
+import { Product } from "../models/product.model.js";
 import { nanoid } from "nanoid";
 import mongoose from "mongoose";
 

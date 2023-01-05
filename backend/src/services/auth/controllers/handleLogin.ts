@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { authUser } from "../models/authUser.model.js";
-import { IUser, User } from "../../users/user.model.js";
+import { IUser, User } from "../../users/models/user.model.js";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import jsonwebtoken from "jsonwebtoken";

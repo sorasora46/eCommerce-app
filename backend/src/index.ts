@@ -6,7 +6,7 @@ import productRoute from "./services/products/index.js";
 import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
-import { IUser } from "./services/users/user.model.js";
+import { IUser } from "./services/users/models/user.model.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -18,7 +18,7 @@ const domain = "127.0.0.1"; // specify node server to set cookie at this domain
  * 2. set credential to true both frontend and backend (in cors config)
  * 3. set domain in app.listen or add domain in cookie option ({ domain: domain })
  * 4. set httpOnly (optional)
- * 
+ *
  * to retrieve cookies from client
  * 1. install cookieParser
  */
