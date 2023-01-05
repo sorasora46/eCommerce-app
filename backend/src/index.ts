@@ -34,13 +34,13 @@ app.use(
 );
 app.use(cookieParser());
 
-declare global {
-  namespace Express {
-    export interface Request {
-      user?: IUser;
-    }
-  }
-}
+// declare global {
+//   namespace Express {
+//     export interface Request {
+//       user?: IUser;
+//     }
+//   }
+// }
 
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
