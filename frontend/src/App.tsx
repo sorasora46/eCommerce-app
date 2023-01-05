@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Register } from "./pages/Register";
 import { _404 } from "./pages/_404";
+import "./styles/index.css";
 
 function App() {
   return (
