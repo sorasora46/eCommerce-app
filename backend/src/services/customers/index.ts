@@ -9,6 +9,6 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.get("/getcustomer", getCustomer);
-router.post("register", register);
+router.post("/register", register);
 
 export default router;
