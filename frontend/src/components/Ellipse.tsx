@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode } from "react";
 import { accentColor } from "../resources/colors";
 
 export const Ellipse: FC<{
@@ -6,12 +6,8 @@ export const Ellipse: FC<{
   radius?: number;
   color?: string;
   borderSize: number;
-}> = ({
-  children,
-  radius,
-  borderSize,
-  color,
-}) => {
+  style?: CSSProperties;
+}> = ({ children, radius, borderSize, color, style }) => {
   const defaultSetting = {
     borderRadius: "100%",
     display: "flex",
@@ -21,19 +17,17 @@ export const Ellipse: FC<{
 
   const dRadius = radius ? radius : 167;
   const dColor = color ? color : accentColor;
-  const dDropShadowX = dropShadowX ? dropShadowX : 0;
-  const dDropShadowY = dropShadowY ? dropShadowY : 4;
-  const dDropShadowOpacity = dropShadowOpacity ? dropShadowOpacity : 4;
 
-  const style = {
+  const configStyle = {
     ...defaultSetting,
     width: dRadius,
     height: dRadius,
     border: `${borderSize}px solid ${dColor}`,
+    ...style,
   };
 
   return (
-    <div className="ellipse" style={style}>
+    <div style={configStyle} className="ellipse">
       {children}
     </div>
   );
