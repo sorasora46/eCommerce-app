@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import mongoose from "mongoose";
 import { AuthUser } from "../../auth/models/authUser.model.js";
 import * as bcrypt from "bcrypt";
+import { User, UserRole } from "../../users/models/user.model.js";
 import { resetRegister } from "../../../helpers/resetRegister.js";
 
 // TODO: 1. Register AuthUser
