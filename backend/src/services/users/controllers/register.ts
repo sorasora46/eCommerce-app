@@ -5,7 +5,9 @@ import mongoose from "mongoose";
 
 export const register = async (req: Request, res: Response) => {
   try {
+    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
     const { email, role } = req.body;
+
     if (email && role) {
       await createUser(email, role);
       return res.redirect(307, "/auth/register"); // be careful with redirect don't mess up again
@@ -21,8 +23,6 @@ export const register = async (req: Request, res: Response) => {
 };
 
 export const createUser = async (email: string, role: string) => {
-  await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
-
   if (UserRole.CUSTOMER !== role && UserRole.SHOP !== role)
     throw new Error("Role does not exist");
 
