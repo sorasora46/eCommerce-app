@@ -8,6 +8,7 @@ import { UserRole } from "../../users/models/user.model.js";
 // TODO: 2. Register the user according to the role (need redirect)
 export const register = async (req: Request, res: Response) => {
   try {
+    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
     const { email, password, role } = req.body;
     if (email && password) {
       // Hash the password and save to DB
@@ -35,7 +36,6 @@ export const createAuthUser = async (
   password: string,
   role: string
 ) => {
-  await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
   if (UserRole.CUSTOMER !== role && UserRole.SHOP !== role)
     throw new Error("Role does not exist");
