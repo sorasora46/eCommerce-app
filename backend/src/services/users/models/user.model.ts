@@ -1,9 +1,14 @@
 import { Schema, model } from "mongoose";
 
+export enum UserRole {
+  CUSTOMER = "CUSTOMER",
+  SHOP = "SHOP",
+}
+
 export interface IUser {
   userId: string;
   email: string;
-  role: string;
+  role: UserRole;
 }
 
 const userSchema = new Schema<IUser>({
