@@ -6,7 +6,6 @@ import productRoute from "./services/products/index.js";
 import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
-import { IUser } from "./services/users/models/user.model.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -33,14 +32,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
-// declare global {
-//   namespace Express {
-//     export interface Request {
-//       user?: IUser;
-//     }
-//   }
-// }
 
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);

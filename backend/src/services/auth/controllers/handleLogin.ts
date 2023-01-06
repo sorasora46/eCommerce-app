@@ -29,7 +29,6 @@ export const handleLogin = async (req: Request, res: Response) => {
     const expiration = "6h"; // Expiration of token
     const { accessToken, refreshToken } = createLoginToken(user, expiration);
     saveRefreshToken(refreshToken, user.userId);
-    // req.user = user; // Atttach user object to req object
 
     // Setting cookies
     res
