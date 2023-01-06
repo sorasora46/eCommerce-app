@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 export const Textfield: FC<{
   id?: string;
@@ -8,8 +8,9 @@ export const Textfield: FC<{
   type?: string;
   padding?: string;
   margin?: string;
-}> = ({ id, placeholder, width, height, type, padding, margin }) => {
-  const [text, setText] = useState<string>("");
+  value: string;
+  onChange: Function;
+}> = ({ id, placeholder, width, height, type, padding, margin, value, onChange }) => {
 
   const dWidth = width ? width : 317;
   const dHeight = height ? height : 47;
@@ -30,8 +31,8 @@ export const Textfield: FC<{
       type={type}
       id={id}
       placeholder={placeholder}
-      onChange={(e) => setText(e.target.value)}
-      value={text}
+      onChange={(e) => onChange(e.target.value)}
+      value={value}
     />
   );
 };
