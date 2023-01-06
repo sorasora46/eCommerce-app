@@ -12,6 +12,7 @@ export const Button: FC<{
   fontSize?: string;
   className?: string;
   onClick?: MouseEventHandler;
+  type?: "button" | "submit" | "reset" | undefined;
 }> = ({
   children,
   style,
@@ -23,6 +24,7 @@ export const Button: FC<{
   fontSize,
   className,
   onClick,
+  type,
 }) => {
   const dColor = color ? color : "white";
   const dWidth = width ? width : "120px";
@@ -43,7 +45,12 @@ export const Button: FC<{
     ...style,
   };
   return (
-    <button style={configStyle} className={`${className}`} onClick={onClick} >
+    <button
+      style={configStyle}
+      className={`${className}`}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );
