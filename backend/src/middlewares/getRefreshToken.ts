@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jsonwebtoken, { JwtPayload } from "jsonwebtoken";
 import mongoose from "mongoose";
-import { storedRefreshToken } from "../services/auth/models/refreshToken.model.js";
+import { HashedRefreshToken } from "../services/auth/models/refreshToken.model.js";
 import bcrypt from "bcrypt";
 
 export const getRefreshToken = async (
@@ -26,8 +26,8 @@ export const getRefreshToken = async (
 
       await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
       const tokens = (
-        await storedRefreshToken.find({ userId: user._doc.userId })
-      ).map((item) => item.hashedToken);
+        await HashedRefreshToken.find({ userId: user._doc.userId })
+      ).map((item) => item.hashedRefreshToken);
 
       // be careful here Array.find does not return boolean.
       // if the condition is not satisfied, it returns undefined.

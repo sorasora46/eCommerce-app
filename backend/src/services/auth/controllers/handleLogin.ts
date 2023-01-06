@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { authUser } from "../models/authUser.model.js";
+import { AuthUser } from "../models/authUser.model.js";
 import { IUser, User } from "../../users/models/user.model.js";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import jsonwebtoken from "jsonwebtoken";
-import { storedRefreshToken } from "../models/refreshToken.model.js";
+import { HashedRefreshToken } from "../models/refreshToken.model.js";
 
 export const handleLogin = async (req: Request, res: Response) => {
   try {
@@ -54,7 +54,7 @@ async function validateUserData(
   password: string
 ): Promise<boolean> {
   // Find user's hashedPassword by the email
-  const { hashedPassword } = await authUser.findOne({ email: email });
+  const { hashedPassword } = await AuthUser.findOne({ email: email });
 
   // Check if the email exist
   if (!hashedPassword) throw new Error("Incorrect email");
@@ -84,12 +84,12 @@ function createLoginToken(user: IUser, expiration: string) {
 
 async function saveRefreshToken(refreshToken: string, userId: string) {
   // Get old refresh token
-  const storedToken = await storedRefreshToken.findOne({ userId: userId });
+  const storedToken = await HashedRefreshToken.findOne({ userId: userId });
 
   // Check if the user already own refresh token
   // If it exists then delete it
   if (storedToken) {
-    await storedRefreshToken.findOneAndDelete({ userId: userId });
+    await HashedRefreshToken.findOneAndDelete({ userId: userId });
   }
 
   // Hash the refresh token
@@ -97,7 +97,7 @@ async function saveRefreshToken(refreshToken: string, userId: string) {
   const token = await bcrypt.hash(refreshToken, salt);
 
   // Store the hashed refresh token
-  const result = await storedRefreshToken.create({
+  const result = await HashedRefreshToken.create({
     hashedToken: token,
     userId: userId,
   });
