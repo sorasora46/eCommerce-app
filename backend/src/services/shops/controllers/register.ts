@@ -3,6 +3,20 @@ import { Shop } from "../models/shop.model.js";
 import { nanoid } from "nanoid";
 import mongoose from "mongoose";
 
+export const register = async (req: Request, res: Response) => {
+  try {
+    const { email, name, profileImage } = req.body;
+    if (email && name) {
+      const result = await createShop(email, name, profileImage);
+      return res.json(result);
+    }
+    return res.status(400).json({ message: "register error" });
+  } catch (error: any) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
+
 export const createShop = async (
   shop_email: string,
   shop_name: string,
@@ -29,18 +43,4 @@ export const createShop = async (
     .catch((err) => console.log(err));
 
   return newShop;
-};
-
-export const register = async (req: Request, res: Response) => {
-  try {
-    const { email, name, profileImage } = req.body;
-    if (email && name) {
-      const result = await createShop(email, name, profileImage);
-      return res.json(result);
-    }
-    return res.status(400).json({ message: "register error" });
-  } catch (error: any) {
-    console.log(error);
-    res.status(400).json({ message: error.message });
-  }
 };

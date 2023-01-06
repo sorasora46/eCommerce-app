@@ -5,6 +5,28 @@ import mongoose from "mongoose";
 import { authUser } from "../../auth/models/authUser.model.js";
 import * as bcrypt from "bcrypt";
 
+export const register = async (req: Request, res: Response) => {
+  try {
+    const { email, fname, lname, dateOfBirth, profileImage, password } =
+      req.body;
+    if (email && fname && lname && dateOfBirth && password) {
+      const result = await createUser(
+        email,
+        fname,
+        lname,
+        dateOfBirth,
+        password,
+        profileImage
+      );
+      return res.json(result);
+    }
+    return res.status(400).json({ message: "register error" });
+  } catch (error: any) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
+
 export const createUser = async (
   user_email: string,
   user_fname: string,
@@ -54,26 +76,4 @@ export const createUser = async (
     .catch((err) => console.log(err));
 
   return newUser;
-};
-
-export const register = async (req: Request, res: Response) => {
-  try {
-    const { email, fname, lname, dateOfBirth, profileImage, password } =
-      req.body;
-    if (email && fname && lname && dateOfBirth && password) {
-      const result = await createUser(
-        email,
-        fname,
-        lname,
-        dateOfBirth,
-        password,
-        profileImage
-      );
-      return res.json(result);
-    }
-    return res.status(400).json({ message: "register error" });
-  } catch (error: any) {
-    console.log(error);
-    res.status(400).json({ message: error.message });
-  }
 };
