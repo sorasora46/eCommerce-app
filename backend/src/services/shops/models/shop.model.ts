@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { IUser } from "../../users/models/user.model.js";
 
 export interface IShop {
   userId: string;
