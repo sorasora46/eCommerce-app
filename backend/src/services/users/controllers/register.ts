@@ -26,7 +26,7 @@ export const createUser = async (email: string, role: string) => {
   if (UserRole.CUSTOMER !== role && UserRole.SHOP !== role)
     throw new Error("Role does not exist");
 
-  const sameEmailUser = await User.findOne({ email: email, role: role });
+  const sameEmailUser = await User.findOne({ email: email });
   if (sameEmailUser) throw new Error("User already exist [Email]");
 
   const newUser = await User.create({
