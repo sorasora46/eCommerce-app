@@ -1,17 +1,19 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import { accentColor } from "../resources/colors";
 
 export const CartSVG: FC<{
   width?: number;
   height?: number;
   color?: string;
-}> = ({ width, height, color }) => {
+  style?: CSSProperties;
+}> = ({ width, height, color, style }) => {
   const dWidth = width ? width : 58;
   const dHeight = height ? height : 77;
   const dColor = color ? color : accentColor;
 
   return (
     <svg
+      style={style}
       className="cart-vector cart"
       width={dWidth}
       height={dHeight}
