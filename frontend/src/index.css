@@ -66,6 +66,8 @@ input {
   display: block;
   width: 100%;
   font: inherit;
+  border: none;
+  outline: none;
 }
 
 input::placeholder {
