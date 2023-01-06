@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 
 export interface ITransaction {
   transactionId: string;
-  tFrom: string;
-  tTo: string;
+  tFrom: string; // userId
+  tTo: string; // userId
   tDate: Date;
   tAmount: number;
   tOnProduct: string;
