@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { IUser } from "../../users/models/user.model.js";
 
-export interface ICustomer extends IUser {
+export interface ICustomer {
+  userId: string;
   name: {
     fname: string;
     lname: string;
@@ -11,6 +11,7 @@ export interface ICustomer extends IUser {
 }
 
 const customerSchema = new Schema<ICustomer>({
+  userId: { type: String, required: true, unique: true },
   name: {
     fname: { type: String, required: true },
     lname: { type: String, required: true },
