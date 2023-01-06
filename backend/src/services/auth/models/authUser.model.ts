@@ -10,4 +10,4 @@ const authUserSchema = new Schema<IAuthUser>({
   hashedPassword: { type: String, required: false },
 });
 
-export const authUser = model("auth", authUserSchema);
+export const AuthUser = model("Auth", authUserSchema);
