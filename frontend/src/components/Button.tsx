@@ -1,4 +1,4 @@
-import { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
 import { secondaryColor } from "../resources/colors";
 
 export const Button: FC<{
@@ -11,6 +11,7 @@ export const Button: FC<{
   backgroundColor?: string;
   fontSize?: string;
   className?: string;
+  onClick?: MouseEventHandler;
 }> = ({
   children,
   style,
@@ -21,6 +22,7 @@ export const Button: FC<{
   backgroundColor,
   fontSize,
   className,
+  onClick,
 }) => {
   const dColor = color ? color : "white";
   const dWidth = width ? width : "120px";
@@ -41,7 +43,7 @@ export const Button: FC<{
     ...style,
   };
   return (
-    <button style={configStyle} className={`${className}`}>
+    <button style={configStyle} className={`${className}`} onClick={onClick} >
       {children}
     </button>
   );
