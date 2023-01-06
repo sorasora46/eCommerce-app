@@ -11,7 +11,7 @@ export interface ITransaction {
 }
 
 const transactionSchema = new Schema<ITransaction>({
-  transactionId: { type: String, required: true },
+  transactionId: { type: String, required: true, unique: true },
   tFrom: { type: String, required: true },
   tTo: { type: String, required: true },
   tDate: { type: Date, required: true },
