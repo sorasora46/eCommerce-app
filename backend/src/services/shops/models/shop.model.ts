@@ -8,7 +8,7 @@ export interface IShop {
 
 const shopSchema = new Schema<IShop>({
   userId: { type: String, required: true, unique: true },
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   profileImage: { type: String },
 });
 
