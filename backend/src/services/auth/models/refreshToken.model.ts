@@ -1,7 +1,7 @@
 
 import { Schema, model } from "mongoose";
 
-interface IRefreshToken {
+export interface IRefreshToken {
   hashedToken: string;
   userId: string;
 }

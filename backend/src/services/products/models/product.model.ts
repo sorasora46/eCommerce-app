@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface Product {
+export interface IProduct {
   productId: string;
   pName: string;
   pPrice: number;
@@ -9,7 +9,7 @@ interface Product {
   pAmount: number;
 }
 
-const productSchema = new Schema<Product>({
+const productSchema = new Schema<IProduct>({
   productId: { type: String, required: true },
   pName: { type: String, required: true },
   pPrice: { type: Number, required: true },

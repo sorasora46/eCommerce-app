@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
 
-interface Cart {
+export interface ICart {
   userId: string;
   productId: string;
   status: string;
   productAmount: number;
 }
 
-const cartSchema = new Schema<Cart>({
+const cartSchema = new Schema<ICart>({
   userId: { type: String, required: true },
   productId: { type: String, required: true },
   status: { type: String, required: true },

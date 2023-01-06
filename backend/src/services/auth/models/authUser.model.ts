@@ -1,11 +1,11 @@
 import { Schema, model } from "mongoose";
 
-interface authUser {
+export interface IAuthUser {
   email: string;
   hashedPassword: string;
 }
 
-const authUserSchema = new Schema<authUser>({
+const authUserSchema = new Schema<IAuthUser>({
   email: { type: String, required: true },
   hashedPassword: { type: String, required: false },
 });

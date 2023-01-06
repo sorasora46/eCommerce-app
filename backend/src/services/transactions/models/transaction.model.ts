@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface Transaction {
+export interface ITransaction {
   transactionId: string;
   tFrom: string;
   tTo: string;
@@ -10,7 +10,7 @@ interface Transaction {
   tProductAmount: number;
 }
 
-const transactionSchema = new Schema<Transaction>({
+const transactionSchema = new Schema<ITransaction>({
   transactionId: { type: String, required: true },
   tFrom: { type: String, required: true },
   tTo: { type: String, required: true },
