@@ -10,7 +10,7 @@ export interface IProduct {
 }
 
 const productSchema = new Schema<IProduct>({
-  productId: { type: String, required: true },
+  productId: { type: String, required: true, unique: true },
   pName: { type: String, required: true },
   pPrice: { type: Number, required: true },
   pImages: { type: [String], required: true },
