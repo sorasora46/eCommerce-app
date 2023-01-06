@@ -4,9 +4,9 @@ export interface IProduct {
   productId: string;
   pName: string;
   pPrice: number;
-  pImages: string[];
-  pOwnerId: string;
-  pAmount: number;
+  pImages: string[]; // images of product
+  pOwnerId: string; // userId
+  pAmount: number; // the number of product in the stock
 }
 
 const productSchema = new Schema<IProduct>({
