@@ -6,6 +6,7 @@ import productRoute from "./services/products/index.js";
 import shopRoute from "./services/shops/index.js";
 import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
+import customerRoute from "./services/customers/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -39,5 +40,6 @@ app.use("/product", productRoute);
 app.use("/shop", shopRoute);
 app.use("/transaction", transactionRoute);
 app.use("/user", userRoute);
+app.use("/customer", customerRoute);
 
 app.listen(PORT, domain, () => console.log(`Server running at PORT:${PORT}`));
