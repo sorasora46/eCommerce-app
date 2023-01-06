@@ -5,22 +5,29 @@ export const Textfield: FC<{
   placeholder?: string;
   width?: number;
   height?: number;
-}> = ({ id, placeholder, width, height }) => {
+  type?: string;
+  padding?: string;
+  margin?: string;
+}> = ({ id, placeholder, width, height, type, padding, margin }) => {
   const [text, setText] = useState<string>("");
 
   const dWidth = width ? width : 317;
   const dHeight = height ? height : 47;
+  const dPadding = padding ? padding : "20px";
+  const dMargin = margin ? margin : 0;
 
   const style = {
     width: dWidth,
     height: dHeight,
-  }
+    padding: dPadding,
+    margin: dMargin,
+  };
 
   return (
     <input
       className="textfield center-placeholder"
       style={style}
-      type="text"
+      type={type}
       id={id}
       placeholder={placeholder}
       onChange={(e) => setText(e.target.value)}
