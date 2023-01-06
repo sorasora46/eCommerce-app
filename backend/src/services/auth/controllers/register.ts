@@ -9,8 +9,11 @@ export const register = async (req: Request, res: Response) => {
   try {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
     const { email, password, role } = req.body;
-    if (email && password) {
+    const { userId } = await User.findOne({ email: email });
+
+    if (password) {
       // Hash the password and save to DB
+      await createAuthUser(userId, password);
 
       // Registation of customer
       if (role === UserRole.CUSTOMER) {
