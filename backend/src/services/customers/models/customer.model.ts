@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IUser } from "./user.model.js";
+import { IUser } from "../../users/models/user.model.js";
 
 export interface ICustomer extends IUser {
   name: {
