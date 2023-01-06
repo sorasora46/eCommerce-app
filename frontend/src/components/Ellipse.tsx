@@ -4,17 +4,11 @@ import { accentColor } from "../resources/colors";
 export const Ellipse: FC<{
   children: ReactNode;
   radius?: number;
-  dropShadowX?: number;
-  dropShadowY?: number;
-  dropShadowOpacity?: number;
   color?: string;
   borderSize: number;
 }> = ({
   children,
   radius,
-  dropShadowX,
-  dropShadowY,
-  dropShadowOpacity,
   borderSize,
   color,
 }) => {
@@ -35,7 +29,6 @@ export const Ellipse: FC<{
     ...defaultSetting,
     width: dRadius,
     height: dRadius,
-    filter: `drop-shadow(${dDropShadowX}px ${dDropShadowY}px ${dDropShadowOpacity}px rgba(0, 0, 0, 0.35))`,
     border: `${borderSize}px solid ${dColor}`,
   };
 
