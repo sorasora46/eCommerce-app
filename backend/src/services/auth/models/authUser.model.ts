@@ -7,7 +7,7 @@ export interface IAuthUser {
 
 const authUserSchema = new Schema<IAuthUser>({
   email: { type: String, required: true, unique: true },
-  hashedPassword: { type: String, required: false },
+  hashedPassword: { type: String, required: true },
 });
 
 export const AuthUser = model("Auth", authUserSchema);
