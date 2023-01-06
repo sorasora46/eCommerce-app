@@ -5,8 +5,6 @@ import * as bcrypt from "bcrypt";
 import { User, UserRole } from "../../users/models/user.model.js";
 import { resetRegister } from "../../../helpers/resetRegister.js";
 
-// TODO: 1. Register AuthUser
-// TODO: 2. Register the user according to the role (need redirect)
 export const register = async (req: Request, res: Response) => {
   try {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
