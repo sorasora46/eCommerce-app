@@ -10,7 +10,8 @@ export const Textfield: FC<{
   margin?: string;
   value: string;
   onChange: Function;
-}> = ({ id, placeholder, width, height, type, padding, margin, value, onChange }) => {
+  isRequired?: boolean;
+}> = ({ id, placeholder, width, height, type, padding, margin, value, onChange, isRequired }) => {
 
   const dWidth = width ? width : 317;
   const dHeight = height ? height : 47;
@@ -33,6 +34,7 @@ export const Textfield: FC<{
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
       value={value}
+      required={isRequired ? true : false}
     />
   );
 };
