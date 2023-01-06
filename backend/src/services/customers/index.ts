@@ -8,7 +8,7 @@ router.get("/", (req: Request, res: Response) => {
   res.send("Customer route");
 });
 
-router.get("/getcustomer", getCustomer);
 router.post("/register", register);
+router.get("/getcustomer", getCustomer);
 
 export default router;
