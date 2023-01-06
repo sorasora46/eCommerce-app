@@ -74,6 +74,18 @@ input::placeholder {
   font: inherit;
 }
 
+input.center-placeholder::placeholder {
+  text-align: center;
+}
+
+input.start-placeholder::placeholder {
+  text-align: start;
+}
+
+input.end-placeholder::placeholder {
+  text-align: end;
+}
+
 body {
   background: var(--primary-color);
 }
