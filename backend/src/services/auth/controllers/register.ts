@@ -29,15 +29,12 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-export const createAuthUser = async (
-  email: string,
-  password: string,
-) => {
+export const createAuthUser = async (userId: string, password: string) => {
   const salt = await bcrypt.genSalt();
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const newAuthUser = await AuthUser.create({
-    email: email,
+    userId: userId,
     hashedPassword: hashedPassword,
   });
 
