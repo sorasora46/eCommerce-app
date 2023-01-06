@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { User } from "../models/user.model.js";
 import { nanoid } from "nanoid";
-import mongoose, { StringSchemaDefinition } from "mongoose";
+import mongoose from "mongoose";
 import { authUser } from "../../auth/models/authUser.model.js";
 import * as bcrypt from "bcrypt";
 
