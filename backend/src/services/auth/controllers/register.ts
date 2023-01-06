@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import mongoose from "mongoose";
 import { AuthUser } from "../../auth/models/authUser.model.js";
 import * as bcrypt from "bcrypt";
+import { resetRegister } from "../../../helpers/resetRegister.js";
 
 // TODO: 1. Register AuthUser
 // TODO: 2. Register the user according to the role (need redirect)
@@ -25,9 +26,12 @@ export const register = async (req: Request, res: Response) => {
         return res.redirect(307, "/shop/register");
       }
     }
+
+    resetRegister(false, email);
     return res.status(400).json({ message: "register error" });
   } catch (error: any) {
     console.log(error);
+    resetRegister(false, req.body.email);
     res.status(400).json({ message: error.message });
   }
 };
