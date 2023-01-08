@@ -26,7 +26,7 @@ export const Login = () => {
       })
       .catch((err) => {
         console.error(err);
-        // alert("Cannot login");
+        alert("Cannot login, Try again");
       });
     setEmail("");
     setPassword("");
