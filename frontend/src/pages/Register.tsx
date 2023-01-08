@@ -10,8 +10,8 @@ export const Register = () => {
 
   function handleRegister() {}
   function checkPassword() {
-    if ((password && confirmPassword) && password !== confirmPassword) {
-      alert("The password doesn't match with each other")
+    if (password && confirmPassword && password !== confirmPassword) {
+      alert("The password doesn't match with each other");
     }
   }
 
@@ -78,7 +78,9 @@ export const Register = () => {
           className="container flex-row center-items"
           style={{ gap: "3rem", marginTop: "20px" }}
         >
-          <Button type="submit" className="custom-button">Register</Button>
+          <Button type="submit" className="custom-button">
+            Register
+          </Button>
         </div>
       </form>
     </Container>
