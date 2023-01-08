@@ -18,7 +18,11 @@ export const Register = () => {
       <form
         onSubmit={handleRegister}
         className="container flex-column"
-        style={{ width: "50%", height: "65%" }}
+        style={{
+          marginBottom: "20rem",
+          gap: "20px",
+          textAlign: "center",
+        }}
       >
         <div
           id="email-input-container"
