@@ -20,30 +20,48 @@ export const Register = () => {
         className="container flex-column"
         style={{ width: "50%", height: "65%" }}
       >
-        <label htmlFor="email">Email</label>
-        <Textfield
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={setEmail}
-          isRequired={true}
-        />
-          <label htmlFor="password">password</label>
-        <Textfield
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={setPassword}
-          isRequired={true}
-        />
-        <label htmlFor="confirm-password">confirm password</label>
-        <Textfield
-          placeholder="Password"
-          type="password"
-          value={confirmPassword}
-          onChange={setConfirmPassword}
-          isRequired={true}
-        />
+        <div
+          id="email-input-container"
+          className="container flex-column"
+          style={{ gap: "10px" }}
+        >
+          <label htmlFor="email">Email</label>
+          <Textfield
+            placeholder="Email"
+            type="email"
+            value={email}
+            onChange={setEmail}
+            isRequired={true}
+          />
+        </div>
+        <div
+          id="password-input-container"
+          className="container flex-column"
+          style={{ gap: "10px" }}
+        >
+          <label htmlFor="password">Password</label>
+          <Textfield
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={setPassword}
+            isRequired={true}
+          />
+        </div>
+        <div
+          id="confirm-password-input-container"
+          className="container flex-column"
+          style={{ gap: "10px" }}
+        >
+          <label htmlFor="confirm-password">Confirm Password</label>
+          <Textfield
+            placeholder="Password"
+            type="password"
+            value={confirmPassword}
+            onChange={setConfirmPassword}
+            isRequired={true}
+          />
+        </div>
       </form>
     </Container>
   );
