@@ -49,9 +49,9 @@ export const Login = () => {
       <form
         onSubmit={(e) => {
           handleLogin();
-          e.preventDefault();
           setEmail("");
           setPassword("");
+          e.preventDefault();
         }}
         id="username-password"
         className="container flex-column"
