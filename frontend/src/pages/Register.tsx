@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container } from "../components/Container";
+import { Textfield } from "../components/Textfield";
 
 export const Register = () => {
   const [email, setEmail] = useState<string>("");
@@ -20,11 +21,29 @@ export const Register = () => {
         style={{ width: "50%", height: "65%" }}
       >
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" />
-        <label htmlFor="password">password</label>
-        <input type="password" id="password" />
+        <Textfield
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={setEmail}
+          isRequired={true}
+        />
+          <label htmlFor="password">password</label>
+        <Textfield
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={setPassword}
+          isRequired={true}
+        />
         <label htmlFor="confirm-password">confirm password</label>
-        <input type="password" id="confirm-password" />
+        <Textfield
+          placeholder="Password"
+          type="password"
+          value={confirmPassword}
+          onChange={setConfirmPassword}
+          isRequired={true}
+        />
       </form>
     </Container>
   );
