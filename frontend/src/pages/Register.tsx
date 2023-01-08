@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Button } from "../components/Button";
 import { Container } from "../components/Container";
@@ -8,7 +9,22 @@ export const Register = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  function handleRegister() {}
+  function handleRegister() {
+    axios
+      .post("http://127.0.0.1:8000/user/register", {
+        email: email,
+        password: password,
+        role: "CUSTOMER",
+        name: {
+          fname: "Boss",
+          lname: "Kwanja",
+        },
+        dateOfBirth: "2003-01-06T17:08:37.378+00:00",
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  }
+
   function checkPassword() {
     if (password && confirmPassword && password !== confirmPassword) {
       alert("The password doesn't match with each other");
@@ -22,7 +38,10 @@ export const Register = () => {
       className="flex-column center-items"
     >
       <form
-        onSubmit={handleRegister}
+        onSubmit={(e) => {
+          handleRegister();
+          e.preventDefault();
+        }}
         className="container flex-column"
         style={{
           marginBottom: "20rem",
