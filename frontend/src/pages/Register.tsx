@@ -60,7 +60,7 @@ export const Register = () => {
         >
           <label htmlFor="confirm-password">Confirm Password</label>
           <Textfield
-            placeholder="Password"
+            placeholder="Confirm Password"
             type="password"
             value={confirmPassword}
             onChange={setConfirmPassword}
