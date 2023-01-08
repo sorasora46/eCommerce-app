@@ -66,6 +66,13 @@ export const Register = () => {
             isRequired={true}
           />
         </div>
+        <div
+          id="login-register-buttons"
+          className="container flex-row center-items"
+          style={{ gap: "3rem", marginTop: "20px" }}
+        >
+          <Button type="submit" className="custom-button">Register</Button>
+        </div>
       </form>
     </Container>
   );
