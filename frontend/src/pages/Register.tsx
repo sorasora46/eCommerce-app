@@ -9,6 +9,11 @@ export const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   function handleRegister() {}
+  function checkPassword() {
+    if ((password && confirmPassword) && password !== confirmPassword) {
+      alert("The password doesn't match with each other")
+    }
+  }
 
   return (
     <Container
@@ -65,6 +70,7 @@ export const Register = () => {
             value={confirmPassword}
             onChange={setConfirmPassword}
             isRequired={true}
+            onBlur={checkPassword}
           />
         </div>
         <div
