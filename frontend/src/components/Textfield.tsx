@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FocusEventHandler } from "react";
 
 export const Textfield: FC<{
   id?: string;
@@ -10,8 +10,9 @@ export const Textfield: FC<{
   margin?: string;
   value: string;
   onChange: Function;
+  onBlur?: FocusEventHandler; // onfocusout
   isRequired?: boolean;
-}> = ({ id, placeholder, width, height, type, padding, margin, value, onChange, isRequired }) => {
+}> = ({ id, placeholder, width, height, type, padding, margin, value, onChange, isRequired, onBlur }) => {
 
   const dWidth = width ? width : 317;
   const dHeight = height ? height : 47;
@@ -35,6 +36,7 @@ export const Textfield: FC<{
       onChange={(e) => onChange(e.target.value)}
       value={value}
       required={isRequired ? true : false}
+      onBlur={onBlur}
     />
   );
 };
