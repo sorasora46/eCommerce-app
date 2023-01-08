@@ -28,8 +28,6 @@ export const Login = () => {
         console.error(err);
         alert("Cannot login, Try again");
       });
-    setEmail("");
-    setPassword("");
   }
 
   return (
@@ -52,6 +50,8 @@ export const Login = () => {
         onSubmit={(e) => {
           handleLogin();
           e.preventDefault();
+          setEmail("");
+          setPassword("");
         }}
         id="username-password"
         className="container flex-column"

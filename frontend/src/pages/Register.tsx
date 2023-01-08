@@ -40,6 +40,9 @@ export const Register = () => {
       <form
         onSubmit={(e) => {
           handleRegister();
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
           e.preventDefault();
         }}
         className="container flex-column"
