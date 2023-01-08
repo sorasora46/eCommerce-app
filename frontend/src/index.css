@@ -46,7 +46,8 @@ button {
 }
 
 img,
-button {
+button,
+label {
   display: block;
 }
 
