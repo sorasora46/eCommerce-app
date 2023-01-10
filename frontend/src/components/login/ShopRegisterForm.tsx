@@ -18,7 +18,10 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         role: role,
         name: name,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        alert("Registeration Success!");
+        window.location.href = "http://127.0.0.1:5173/login";
+      })
       .catch((err) => console.error(err));
   }
 
