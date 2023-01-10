@@ -16,7 +16,7 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         email: email,
         password: password,
         role: role,
-        name: "Boss cookie shop",
+        name: name,
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.error(err));
