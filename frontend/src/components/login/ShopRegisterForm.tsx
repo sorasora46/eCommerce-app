@@ -32,8 +32,8 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
   }
 
   return (
-    <>
-      <h1>Shop Register</h1>
+    <div>
+      <h2 style={{ textAlign: "center" }}>Shop Register</h2>
       <form
         onSubmit={(e) => {
           handleRegister();
@@ -43,19 +43,20 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           setName("");
           e.preventDefault();
         }}
-        className="container flex-column"
+        className="container flex-column center-items"
         style={{
           marginBottom: "20rem",
-          gap: "20px",
           textAlign: "center",
         }}
       >
         <div
           id="email-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            <h3>Email</h3>
+          </label>
           <Textfield
             placeholder="Email"
             type="email"
@@ -67,10 +68,12 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="password-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            <h3>Password</h3>
+          </label>
           <Textfield
             placeholder="Password"
             type="password"
@@ -82,10 +85,12 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="confirm-password-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password">
+            <h3>Confirm Password</h3>
+          </label>
           <Textfield
             placeholder="Confirm Password"
             type="password"
@@ -98,10 +103,12 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="shop-name-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="shop-name">Shop's Name</label>
+          <label htmlFor="shop-name">
+            <h3>Shop's Name</h3>
+          </label>
           <Textfield
             placeholder="Shop's Name"
             type="text"
@@ -114,13 +121,16 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         <div
           id="login-register-buttons"
           className="container flex-row center-items"
-          style={{ gap: "3rem", marginTop: "20px" }}
         >
-          <Button type="submit" className="custom-button">
+          <Button
+            type="submit"
+            className="custom-button"
+            style={{ marginTop: "20px" }}
+          >
             Register
           </Button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
