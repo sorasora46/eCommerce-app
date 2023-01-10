@@ -6,21 +6,26 @@ export const TabComponent: FC<{
 }> = ({ tabTitles, tabBodies }) => {
   const [currentTab, setCurrentTab] = useState<number>(0);
   return (
-    <>
-      <div className="container">
-        {tabTitles?.map((topic, index) => {
-          return (
-            <div
-              key={index}
-              style={{ border: "1px solid black", cursor: "pointer" }}
-              onClick={() => setCurrentTab(index)}
-            >
-              {topic}
-            </div>
-          );
-        })}
+    <div
+      className="container flex-column"
+      style={{ width: "40%", height: "50vh" }}
+    >
+      <div>
+        <div className="container center-items">
+          {tabTitles?.map((topic, index) => {
+            return (
+              <div
+                className="tab"
+                key={index}
+                onClick={() => setCurrentTab(index)}
+              >
+                <h1>{topic}</h1>
+              </div>
+            );
+          })}
+        </div>
+        <div>{tabBodies?.[currentTab]}</div>
       </div>
-      <div>{tabBodies?.[currentTab]}</div>
-    </>
+    </div>
   );
 };
