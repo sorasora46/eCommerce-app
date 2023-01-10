@@ -8,7 +8,8 @@ export const Register = () => {
     <Container
       width={"100%"}
       height={"100vh"}
-      className="flex-column center-items"
+      className="flex-column"
+      style={{ alignItems: "center", marginTop: "10rem" }}
     >
       <TabComponent
         tabTitles={["Customer", "Shop"]}
