@@ -21,11 +21,12 @@ export const handleLogin = async (req: Request, res: Response) => {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
     const { email, password } = req.body;
-    validateUserData(email, password).catch((err) => {
+    const user = await User.findOne({ email: email }); // Find user data by email
+
+    validateUserData(user.userId, password).catch((err) => {
       throw err;
     });
 
-    const user = await User.findOne({ email: email }); // Find user data by email
     const expiration = "6h"; // Expiration of token
     const { accessToken, refreshToken } = createLoginToken(user, expiration);
     saveRefreshToken(refreshToken, user.userId);
@@ -50,11 +51,11 @@ export const handleLogin = async (req: Request, res: Response) => {
 };
 
 async function validateUserData(
-  email: string,
+  userId: string,
   password: string
 ): Promise<boolean> {
   // Find user's hashedPassword by the email
-  const { hashedPassword } = await AuthUser.findOne({ email: email });
+  const { hashedPassword } = await AuthUser.findOne({ userId: userId });
 
   // Check if the email exist
   if (!hashedPassword) throw new Error("Incorrect email");
