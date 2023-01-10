@@ -44,8 +44,8 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
   }
 
   return (
-    <>
-      <h1>Customer Register</h1>
+    <div>
+      <h2 style={{ textAlign: "center" }}>Customer Register</h2>
       <form
         onSubmit={(e) => {
           handleRegister();
@@ -59,16 +59,19 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         className="container flex-column"
         style={{
           marginBottom: "20rem",
-          gap: "20px",
           textAlign: "center",
+          height: "50vh",
+          width: "100%",
         }}
       >
         <div
           id="email-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            <h3>Email</h3>
+          </label>
           <Textfield
             placeholder="Email"
             type="email"
@@ -80,10 +83,12 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="password-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            <h3>Password</h3>
+          </label>
           <Textfield
             placeholder="Password"
             type="password"
@@ -95,10 +100,12 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="confirm-password-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ marginBottom: "1rem" }}
         >
-          <label htmlFor="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password">
+            <h3>Confirm Password</h3>
+          </label>
           <Textfield
             placeholder="Confirm Password"
             type="password"
@@ -112,10 +119,12 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         <div id="name-container">
           <div
             id="fname-input-container"
-            className="container flex-column"
-            style={{ gap: "10px" }}
+            className="container flex-column center-items"
+            style={{ marginBottom: "1rem" }}
           >
-            <label htmlFor="fname">Firstname</label>
+            <label htmlFor="fname">
+              <h3>Firstname</h3>
+            </label>
             <Textfield
               placeholder="Firstname"
               type="text"
@@ -127,10 +136,12 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           </div>
           <div
             id="lname-input-container"
-            className="container flex-column"
-            style={{ gap: "10px" }}
+            className="container flex-column center-items"
+            style={{ marginBottom: "1rem" }}
           >
-            <label htmlFor="lname">Lastname</label>
+            <label htmlFor="lname">
+              <h3>Lastname</h3>
+            </label>
             <Textfield
               placeholder="Lastname"
               type="text"
@@ -143,28 +154,34 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         </div>
         <div
           id="date-input-container"
-          className="container flex-column"
-          style={{ gap: "10px" }}
+          className="container flex-column center-items"
+          style={{ width: "100%", marginBottom: "1rem" }}
         >
-          <label htmlFor="birthdate">Date of Birth</label>
+          <label htmlFor="birthdate">
+            <h3>Date of Birth</h3>
+          </label>
           <input
             type="date"
             id="birthdate"
             value={dateOfBirth}
             onChange={(e) => setDateOfBirth(e.target.value)}
             max={findMaxDate()}
+            style={{ display: "block", width: "15rem" }}
           />
         </div>
         <div
           id="login-register-buttons"
           className="container flex-row center-items"
-          style={{ gap: "3rem", marginTop: "20px" }}
         >
-          <Button type="submit" className="custom-button">
+          <Button
+            type="submit"
+            className="custom-button"
+            style={{ marginTop: "20px" }}
+          >
             Register
           </Button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
