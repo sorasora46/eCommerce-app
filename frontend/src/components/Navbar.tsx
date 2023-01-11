@@ -9,7 +9,7 @@ export const Navbar = () => {
         justifyContent: "space-between",
         padding: "0 5rem 0 5rem",
         borderBottom: `2px solid ${accentColor}`,
-        height: "5vh",
+        height: "7vh",
         alignItems: "center",
       }}
     >
