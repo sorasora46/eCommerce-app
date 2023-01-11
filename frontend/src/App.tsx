@@ -6,20 +6,23 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Register } from "./pages/Register";
 import { _404 } from "./pages/_404";
+import { AuthContextProvider } from "./context/AuthContext";
 import "./index.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile/:userId" element={<Profile />} />
-        <Route path="/profile/:userId/cart" element={<Cart />} />
-        <Route path="/chat/:userId" element={<Chat />} />
-        <Route path="*" element={<_404 />} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile/:userId" element={<Profile />} />
+          <Route path="/profile/:userId/cart" element={<Cart />} />
+          <Route path="/chat/:userId" element={<Chat />} />
+          <Route path="*" element={<_404 />} />
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
