@@ -34,13 +34,11 @@ export const handleLogin = async (req: Request, res: Response) => {
     // Setting cookies
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
-        // maxAge: 3600000,
-        maxAge: 1000 * 10,
+        maxAge: 3600000 * 6, // 6 hours
         httpOnly: true,
       })
       .cookie("refresh_token", `${refreshToken}`, {
-        // maxAge: 6 * 3600000,
-        maxAge: 1000 * 60,
+        maxAge: 3600000 * 12, // 12 hours
         httpOnly: true,
       })
       .json({ redirectUrl: "http://127.0.0.1:5173", loginSuccess: true });
