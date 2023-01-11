@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 
 export const getUser = async (req: Request, res: Response) => {
   try {
-    // const user = req.cookies // get user info from access token from cookies
+    // const user = req.signedCookies // get user info from access token from cookies
     // if (!user) throw new Error("Not authenticated")
 
     const { userId } = req.body;

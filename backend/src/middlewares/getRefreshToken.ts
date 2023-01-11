@@ -10,7 +10,7 @@ export const getRefreshToken = async (
   next: NextFunction
 ) => {
   try {
-    const { access_token, refresh_token } = req.cookies;
+    const { access_token, refresh_token } = req.signedCookies;
 
     // If already login then proceed further
     if (access_token && refresh_token) {

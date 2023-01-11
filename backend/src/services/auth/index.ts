@@ -10,8 +10,8 @@ router.post("/login", handleLogin);
 router.post("/register", register);
 router.get("/test", getRefreshToken, authenticateToken, (req, res) => {
   res.json({
-    token1: req.cookies.access_token,
-    token2: req.cookies.refresh_token,
+    token1: req.signedCookies.access_token,
+    token2: req.signedCookies.refresh_token,
   });
 });
 

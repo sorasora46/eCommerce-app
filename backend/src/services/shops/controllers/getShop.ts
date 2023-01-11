@@ -4,7 +4,7 @@ import { Shop } from "../models/shop.model.js";
 
 export const getShop = async (req: Request, res: Response) => {
   try {
-    // const shop = req.cookies // get shop info from access token from cookies
+    // const shop = req.signedCookies // get shop info from access token from cookies
     // if (!shop) throw new Error("Not authenticated")
 
     const { userId } = req.body;

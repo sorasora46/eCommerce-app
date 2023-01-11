@@ -7,8 +7,8 @@ export const authenticateToken = (
   next: NextFunction
 ) => {
   try {
-    const access_token = req.cookies.access_token;
-    const refresh_token = req.cookies.refresh_token;
+    const access_token = req.signedCookies.access_token;
+    const refresh_token = req.signedCookies.refresh_token;
 
     // Redirect to login page when both tokens not found
     if (!access_token && !refresh_token) {
