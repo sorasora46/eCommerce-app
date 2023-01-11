@@ -99,7 +99,7 @@ async function saveRefreshToken(refreshToken: string, userId: string) {
 
   // Store the hashed refresh token
   const result = await HashedRefreshToken.create({
-    hashedToken: token,
+    hashedRefreshToken: token,
     userId: userId,
   });
   result
