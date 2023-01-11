@@ -32,7 +32,7 @@ app.use(
     origin: "http://127.0.0.1:5173",
   })
 );
-app.use(cookieParser());
+app.use(cookieParser("very secret cookie_secret string"));
 
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
