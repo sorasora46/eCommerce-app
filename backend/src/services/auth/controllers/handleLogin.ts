@@ -8,7 +8,7 @@ import { HashedRefreshToken } from "../models/refreshToken.model.js";
 
 export const handleLogin = async (req: Request, res: Response) => {
   try {
-    const { access_token, refresh_token } = req.cookies;
+    const { access_token, refresh_token } = req.signedCookies;
 
     // If both tokens exist then redirect to home page
     if (access_token && refresh_token) {
@@ -35,10 +35,12 @@ export const handleLogin = async (req: Request, res: Response) => {
     res
       .cookie("access_token", `Bearer ${accessToken}`, {
         maxAge: 3600000 * 6, // 6 hours
+        signed: true,
         httpOnly: true,
       })
       .cookie("refresh_token", `${refreshToken}`, {
         maxAge: 3600000 * 12, // 12 hours
+        signed: true,
         httpOnly: true,
       })
       .json({ redirectUrl: "http://127.0.0.1:5173", loginSuccess: true });
