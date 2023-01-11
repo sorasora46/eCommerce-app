@@ -27,7 +27,7 @@ export const Ellipse: FC<{
   };
 
   return (
-    <div style={configStyle} className="ellipse">
+    <div style={configStyle} className="shadow">
       {children}
     </div>
   );
