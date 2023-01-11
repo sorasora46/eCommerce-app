@@ -5,7 +5,6 @@ import { Shop } from "../models/shop.model.js";
 export const getShop = async (req: Request, res: Response) => {
   try {
 
-    const { userId } = req.body;
 
 
   } catch (error: any) {
