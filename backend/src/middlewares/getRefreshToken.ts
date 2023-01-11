@@ -53,6 +53,7 @@ export const getRefreshToken = async (
           );
 
           res.cookie("access_token", `Bearer ${accessToken}`, {
+            maxAge: 3600000 * 6,
             httpOnly: true,
           });
 
