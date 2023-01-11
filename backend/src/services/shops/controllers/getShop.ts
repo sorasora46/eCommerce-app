@@ -4,15 +4,10 @@ import { Shop } from "../models/shop.model.js";
 
 export const getShop = async (req: Request, res: Response) => {
   try {
-    // const shop = req.signedCookies // get shop info from access token from cookies
-    // if (!shop) throw new Error("Not authenticated")
 
     const { userId } = req.body;
 
-    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
-    const result = await Shop.findOne({ shopId: userId });
-    res.json(result);
   } catch (error: any) {
     console.log(error);
     res.json({ error: error.message });
