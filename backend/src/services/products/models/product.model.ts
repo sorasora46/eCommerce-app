@@ -7,6 +7,7 @@ export interface IProduct {
   pImages: string[]; // images of product
   pOwnerId: string; // userId
   pAmount: number; // the number of product in the stock
+  pClickAmount: number;
 }
 
 const productSchema = new Schema<IProduct>({
@@ -16,6 +17,7 @@ const productSchema = new Schema<IProduct>({
   pImages: { type: [String], required: true },
   pOwnerId: { type: String, required: true },
   pAmount: { type: Number, required: true },
+  pClickAmount: { type: Number, required: true },
 });
 
 export const Product = model("Product", productSchema);
