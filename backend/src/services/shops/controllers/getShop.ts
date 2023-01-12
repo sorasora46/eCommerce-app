@@ -18,6 +18,7 @@ export const getShop = async (req: Request, res: Response) => {
 
         const userId = payload._doc.userId;
         const email = payload._doc.email;
+        const role = payload._doc.role;
 
         const shop = await Shop.findOne({ userId: userId });
 
@@ -26,6 +27,7 @@ export const getShop = async (req: Request, res: Response) => {
           email: email,
           name: shop.name,
           profileImage: shop.profileImage,
+          role: role,
         });
       }
     );

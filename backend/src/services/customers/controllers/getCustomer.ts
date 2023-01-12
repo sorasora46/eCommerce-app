@@ -18,6 +18,7 @@ export const getCustomer = async (req: Request, res: Response) => {
 
         const userId = payload._doc.userId;
         const email = payload._doc.email;
+        const role = payload._doc.role;
 
         const customer = await Customer.findOne({ userId: userId });
 
@@ -27,6 +28,7 @@ export const getCustomer = async (req: Request, res: Response) => {
           name: { ...customer.name },
           dateOfBirth: customer.dateOfBirth,
           profileImage: customer.profileImage,
+          role: role,
         });
       }
     );
