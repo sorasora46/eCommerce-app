@@ -11,7 +11,7 @@ export const SearchBar: FC<{ onSubmit: FormEventHandler, searchText: string, set
   return (
     <div className="container center-items" style={style}>
       <form onSubmit={onSubmit}>
-        <Textfield value={searchText} onChange={setSearchText} />
+        <Textfield isRequired value={searchText} onChange={setSearchText} />
       </form>
     </div>
   );
