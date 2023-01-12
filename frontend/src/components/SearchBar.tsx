@@ -6,10 +6,11 @@ export const SearchBar: FC<{ onSubmit: FormEventHandler, searchText: string, set
   const style: CSSProperties = {
     width: "100%",
     height: "40vh",
+    gap: "1rem",
   };
 
   return (
-    <div className="container center-items" style={style}>
+    <div className="container flex-column center-items" style={style}>
       <h2><label htmlFor="searchbar">Search the product you want</label></h2>
       <form onSubmit={onSubmit}>
         <Textfield id="searchbar" isRequired value={searchText} onChange={setSearchText} />
