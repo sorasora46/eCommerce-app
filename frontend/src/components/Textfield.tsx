@@ -28,7 +28,7 @@ export const Textfield: FC<{
 
   return (
     <input
-      className="textfield center-placeholder"
+      className="textfield center-placeholder shadow"
       style={style}
       type={type}
       id={id}
