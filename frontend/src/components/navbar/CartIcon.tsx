@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { accentColor } from "../../resources/colors";
 
-export const CartIcon: FC<{ userId: string }> = ({ userId }) => {
+export const CartIcon: FC<{ userId: string, children?: ReactNode }> = ({ userId, children }) => {
   return (
     <Link
       to={userId ? `/profile/${userId}/cart` : "/login"}
@@ -20,6 +20,7 @@ export const CartIcon: FC<{ userId: string }> = ({ userId }) => {
           fill={`${accentColor}`}
         />
       </svg>
+      {children}
     </Link>
   );
 };

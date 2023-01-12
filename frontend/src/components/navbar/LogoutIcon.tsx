@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext } from "react";
+import { FC, ReactNode, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import {
@@ -8,7 +8,7 @@ import {
   secondaryColor,
 } from "../../resources/colors";
 
-export const LogoutIcon = () => {
+export const LogoutIcon: FC<{ children?: ReactNode }> = ({ children }) => {
   const user = useContext(AuthContext);
 
   if (user.error) {
@@ -55,6 +55,7 @@ export const LogoutIcon = () => {
           fill={`${accentColor}`}
         />
       </svg>
+      {children}
     </div>
   );
 };
