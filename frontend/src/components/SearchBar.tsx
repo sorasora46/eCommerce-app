@@ -8,13 +8,13 @@ export const SearchBar: FC<{
 }> = ({ onSubmit, searchText, setSearchText }) => {
   const style: CSSProperties = {
     width: "100%",
-    height: "40vh",
+    height: "50vh",
     gap: "1rem",
   };
 
   return (
-    <div className="container flex-column center-items" style={style}>
-      <h2>
+    <div className="container flex-column center-items hero shadow" style={style}>
+      <h2 className="hero-header shadow">
         <label htmlFor="searchbar">Search the product you want</label>
       </h2>
       <form onSubmit={onSubmit}>
