@@ -109,6 +109,24 @@ body::-webkit-scrollbar-thumb:horizontal {
   border-radius: 10px;
 }
 
+@media (min-width: 421px) {
+  .navbar-desktop {
+    display: block;
+  }
+  .navbar-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar-desktop {
+    display: none;
+  }
+  .navbar-mobile {
+    display: block;
+  }
+}
+
 .container {
   display: flex;
 }
