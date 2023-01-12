@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 :root {
   /* Color */
@@ -178,4 +179,21 @@ body::-webkit-scrollbar-thumb:horizontal {
 
 .logo {
   font-weight: 500;
+}
+
+.hero {
+  background: rgb(236, 52, 93);
+  background: linear-gradient(
+    225deg,
+    /* rgba(236, 52, 93, 1) 50%, */
+    rgb(236, 171, 52) 50%,
+    rgba(255, 253, 214, 1) 50%
+  );
+}
+
+.hero-header {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+  color: var(--accent-color);
+  text-shadow: 2px 2px #fffbe9;
 }
