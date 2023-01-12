@@ -20,6 +20,7 @@ export const HamburderMenu: FC<{
     width: "100%",
     height: `${window.innerHeight}px`,
     backdropFilter: "brightness(0.6) blur(2px)",
+    zIndex: 1
   };
 
   const innerStyle: CSSProperties = {
