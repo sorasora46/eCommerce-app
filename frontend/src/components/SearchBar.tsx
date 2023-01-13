@@ -19,6 +19,7 @@ export const SearchBar: FC<{
       </h2>
       <form onSubmit={onSubmit}>
         <Textfield
+        placeholder="Search here ..."
           id="searchbar"
           isRequired
           value={searchText}
