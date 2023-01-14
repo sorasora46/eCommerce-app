@@ -14,7 +14,7 @@ export const createProduct = async (
 
   const newProduct = await Product.create({
     productId: nanoid(),
-    pImage: pImages,
+    pImage: pImage,
     pName: pName,
     pOwnerId: pOwner,
     pPrice: pPrice,
