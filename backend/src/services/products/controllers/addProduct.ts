@@ -18,9 +18,6 @@ export const createProduct = async (
   });
   if (sameOwnerAndName) throw new Error("Product already exist [Name, Owner]");
 
-  if (pImages.length === 0)
-    throw new Error("Product must include atleast 1 picture");
-
   const newProduct = await Product.create({
     productId: nanoid(),
     pImage: pImages,
