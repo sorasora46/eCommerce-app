@@ -12,7 +12,7 @@ export const HamburderMenu: FC<{
 }> = ({ user, isOpen, setIsOpen }) => {
   const outerStyle: CSSProperties = {
     display: isOpen ? "block" : "none",
-    position: "absolute",
+    position: "fixed",
     left: 0,
     bottom: 0,
     right: 0,
