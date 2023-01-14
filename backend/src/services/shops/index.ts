@@ -9,6 +9,6 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.post("/register", register);
-router.get("/getshop", getShop);
+router.get("/getshop/:shopId", getShop);
 
 export default router;
