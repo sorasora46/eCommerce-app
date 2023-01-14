@@ -10,7 +10,7 @@ export interface ICart {
 const cartSchema = new Schema<ICart>({
   userId: { type: String, required: true },
   productId: { type: String, required: true },
-  status: { type: String, required: true },
+  status: { type: String, required: true }, // waiting for payment, shipping, waiting for recieved confirmation
   productAmount: { type: Number, required: true },
 });
 
