@@ -32,8 +32,9 @@ export const createProduct = async (
 
 export const addProduct = async (req: Request, res: Response) => {
   try {
-    const { pOwner, pPrice, pName, pImages } = req.body;
     const result = await createProduct(pName, pPrice, pImages, pOwner);
+    const { pOwner, pPrice, pName, pAmount } = req.body;
+    const { buffer } = req.file;
     return res.json(result);
   } catch (error: any) {
     console.log(error);
