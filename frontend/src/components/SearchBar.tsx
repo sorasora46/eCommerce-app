@@ -13,13 +13,16 @@ export const SearchBar: FC<{
   };
 
   return (
-    <div className="container flex-column center-items hero shadow" style={style}>
+    <div
+      className="container flex-column center-items hero shadow"
+      style={style}
+    >
       <h2 className="hero-header shadow">
         <label htmlFor="searchbar">Search the product you want</label>
       </h2>
       <form onSubmit={onSubmit}>
         <Textfield
-        placeholder="Search here ..."
+          placeholder="Search here ..."
           id="searchbar"
           isRequired
           value={searchText}
