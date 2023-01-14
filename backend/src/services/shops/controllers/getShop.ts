@@ -1,36 +1,14 @@
 import { Request, Response } from "express";
-import jsonwebtoken from "jsonwebtoken";
 import mongoose from "mongoose";
 import { Shop } from "../models/shop.model.js";
 
 export const getShop = async (req: Request, res: Response) => {
   try {
-    const { access_token } = req.signedCookies; // get user info from access token from cookies
-    if (!access_token) throw new Error("Not authenticated");
+    await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
-    const token = access_token.split(" ")[1];
-    jsonwebtoken.verify(
-      token,
-      "very secret access_token_secret string",
-      async (err: any, payload: any) => {
-        if (err) throw err;
-        await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
-
-        const userId = payload._doc.userId;
-        const email = payload._doc.email;
-        const role = payload._doc.role;
-
-        const shop = await Shop.findOne({ userId: userId });
-
-        return res.json({
-          userId: userId,
-          email: email,
-          name: shop.name,
-          profileImage: shop.profileImage,
-          role: role,
-        });
-      }
-    );
+    const { shopId } = req.params;
+    const shop = await Shop.findOne({ userId: shopId });
+    res.json(shop);
   } catch (error: any) {
     console.log(error);
     res.json({ error: error.message });
