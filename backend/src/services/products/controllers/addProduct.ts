@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 export const createProduct = async (
   pName: string,
   pPrice: number,
-  pImages: string[],
-  pOwner: string
+  pImage: Buffer,
+  pOwner: string,
 ) => {
   await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
