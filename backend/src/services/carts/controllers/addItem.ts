@@ -6,7 +6,8 @@ import mongoose from "mongoose";
 export const createCartItem = async (
   userId: string,
   productId: string,
-  productAmount: number
+  productAmount: number,
+  status: string,
 ) => {
   /** TODO:
    * 3. when payment success reduce the amount of products from shop
@@ -44,7 +45,7 @@ export const createCartItem = async (
   const newCartItem = await Cart.create({
     userId: userId,
     productId: productId,
-    status: "waiting for payment",
+    status: status,
     productAmount: productAmount,
   });
 
@@ -58,8 +59,8 @@ export const createCartItem = async (
 
 export const addItem = async (req: Request, res: Response) => {
   try {
-    const { userId, productId, productAmount } = req.body;
-    const result = await createCartItem(userId, productId, productAmount);
+    const { userId, productId, productAmount, status } = req.body;
+    const result = await createCartItem(userId, productId, productAmount, status);
     return res.json(result);
   } catch (error: any) {
     console.log(error);
