@@ -32,9 +32,9 @@ export const createProduct = async (
 
 export const addProduct = async (req: Request, res: Response) => {
   try {
-    const result = await createProduct(pName, pPrice, pImages, pOwner);
     const { pOwner, pPrice, pName, pAmount } = req.body;
     const { buffer } = req.file;
+    const result = await createProduct(pName, pPrice, buffer, pOwner, pAmount);
     return res.json(result);
   } catch (error: any) {
     console.log(error);
