@@ -9,6 +9,7 @@ import userRoute from "./services/users/index.js";
 import customerRoute from "./services/customers/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 
 const app: Express = express();
 const PORT = 8000;
@@ -26,6 +27,7 @@ const domain = "127.0.0.1"; // specify node server to set cookie at this domain
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
@@ -33,6 +35,12 @@ app.use(
   })
 );
 app.use(cookieParser("very secret cookie_secret string"));
+
+const Storage = multer.memoryStorage();
+export const upload = multer({
+  storage: Storage,
+})
+app.use(upload.single("productImage"))
 
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
