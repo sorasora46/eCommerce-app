@@ -12,12 +12,6 @@ export const createProduct = async (
 ) => {
   await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
 
-  const sameOwnerAndName = await Product.findOne({
-    pOwnerId: pOwner,
-    pName: pName,
-  });
-  if (sameOwnerAndName) throw new Error("Product already exist [Name, Owner]");
-
   const newProduct = await Product.create({
     productId: nanoid(),
     pImage: pImages,
