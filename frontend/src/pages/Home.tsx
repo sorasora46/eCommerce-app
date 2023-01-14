@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Navbar } from "../components/navbar/Navbar";
+import { ProductShowcase } from "../components/ProductShowcase";
 import { SearchBar } from "../components/SearchBar";
 
 export const Home = () => {
@@ -25,6 +26,7 @@ export const Home = () => {
         searchText={searchText}
         setSearchText={setSearchText}
       />
+      <ProductShowcase />
     </div>
   );
 };
