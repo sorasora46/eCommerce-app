@@ -18,6 +18,8 @@ export const createProduct = async (
     pName: pName,
     pOwnerId: pOwner,
     pPrice: pPrice,
+    pAmount: pAmount,
+    pClickAmount: 0,
   });
 
   newProduct
