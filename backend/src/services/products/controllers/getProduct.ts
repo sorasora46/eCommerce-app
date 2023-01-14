@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Product } from "../models/product.model.js";
 import mongoose from "mongoose";
-import { Shop } from "../../shops/models/shop.model.js";
 
 export const findProduct = async (shopId: string) => {
   const products = await Product.find({ pOwnerId: shopId });
@@ -20,7 +19,19 @@ export const getProduct = async (req: Request, res: Response) => {
       limit: 10,
     });
 
-    res.json(products);
+    const result = products.map((item) => {
+      return {
+        productId: item.productId,
+        pName: item.pName,
+        pPrice: item.pPrice,
+        pOwnerId: item.pOwnerId,
+        pAmount: item.pAmount,
+        pClickAmount: item.pClickAmount,
+        pImage: item.pImage.toString("base64"), // it's work!
+      };
+    });
+
+    res.json(result);
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ message: error.message });
