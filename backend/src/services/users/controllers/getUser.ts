@@ -14,9 +14,9 @@ export const getUser = async (req: Request, res: Response) => {
       (err: any, user: any) => {
         if (err) throw err;
         if (user._doc.role === UserRole.CUSTOMER)
-          return res.redirect(307, "/customer/getcustomer")
+          return res.redirect(307, `/customer/getcustomer/${user._doc.userId}`)
         if (user._doc.role === UserRole.SHOP)
-          return res.redirect(307, "/shop/getshop")
+          return res.redirect(307, `/shop/getshop/${user._doc.userId}`)
       }
     );
   } catch (error: any) {
