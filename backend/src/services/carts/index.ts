@@ -10,7 +10,7 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 router.post("/additem", addItem);
-router.get("/getcartitem", getCartItem);
+router.get("/getcart/:userId", getCartItem);
 router.delete("/removeitem", removeItem);
 
 export default router;
