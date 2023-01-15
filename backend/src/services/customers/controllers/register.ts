@@ -24,7 +24,7 @@ export const register = async (req: Request, res: Response) => {
     }
 
     resetRegister(true, email);
-    return res.status(400).json({ message: "register error" });
+    return res.status(400).json({ message: "register error [customer endpoint]" });
   } catch (error: any) {
     console.log(error.message);
     resetRegister(true, req.body.email);

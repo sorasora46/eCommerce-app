@@ -15,7 +15,7 @@ export const register = async (req: Request, res: Response) => {
       // even though you comment the code out it still redirects to that URL
       // make sure to use http code that has temporary redirect
     }
-    return res.status(400).json({ message: "register error" });
+    return res.status(400).json({ message: "register error [user endpoint]" });
   } catch (error: any) {
     console.log(error);
     res.status(400).json({ message: error.message });
