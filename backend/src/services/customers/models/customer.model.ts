@@ -7,7 +7,7 @@ export interface ICustomer {
     lname: string;
   };
   dateOfBirth: Date;
-  profileImage?: string;
+  profileImage?: Buffer;
 }
 
 const customerSchema = new Schema<ICustomer>({
@@ -17,7 +17,7 @@ const customerSchema = new Schema<ICustomer>({
     lname: { type: String, required: true },
   },
   dateOfBirth: { type: Date, required: true },
-  profileImage: { type: String },
+  profileImage: { type: Buffer },
 });
 
 export const Customer = model("Customer", customerSchema);
