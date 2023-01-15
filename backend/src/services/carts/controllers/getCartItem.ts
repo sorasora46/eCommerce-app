@@ -14,7 +14,7 @@ export const findCartItems = async (userId: string) => {
 
 export const getCartItem = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.body;
+    const { userId } = req.params;
 
     const cartItems = await findCartItems(userId);
 
