@@ -47,6 +47,10 @@ export const Product: FC<{ product: any; onClick: MouseEventHandler }> = ({
           productId: product.productId,
           status: ProductStatus.waitingPayment,
           productAmount: productAmount,
+          pName: product.pName,
+          pPrice: product.pPrice,
+          pImage: product.pImage,
+          pOwnerId: product.pOwnerId
         },
         { withCredentials: true }
       )
