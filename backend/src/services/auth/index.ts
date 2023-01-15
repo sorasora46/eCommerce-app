@@ -4,11 +4,13 @@ import { authenticateToken } from "../../middlewares/authenticateToken.js";
 import { getRefreshToken } from "../../middlewares/getRefreshToken.js";
 import { register } from "./controllers/register.js";
 import { logout } from "./controllers/logout.js";
+import multer from "multer";
 
 const router = Router();
+const upload = multer();
 
 router.post("/login", handleLogin);
-router.post("/register", register);
+router.post("/register", upload.single("profileImage"), register);
 router.get("/logout", logout);
 router.get("/test", getRefreshToken, authenticateToken, (req, res) => {
   res.json({
