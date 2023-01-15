@@ -9,7 +9,6 @@ import userRoute from "./services/users/index.js";
 import customerRoute from "./services/customers/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import multer from "multer";
 
 const app: Express = express();
 const PORT = 8000;
@@ -35,12 +34,6 @@ app.use(
   })
 );
 app.use(cookieParser("very secret cookie_secret string"));
-
-const Storage = multer.memoryStorage();
-export const upload = multer({
-  storage: Storage,
-})
-app.use(upload.single("productImage"))
 
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
