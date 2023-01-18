@@ -208,11 +208,25 @@ body::-webkit-scrollbar-thumb:horizontal {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 770px) {
   .cart-item {
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 40%;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    align-self: center;
+    background-color: var(--accent-color);
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
     border: 1px solid var(--accent-color);
     border-radius: 10px;
     align-self: center;
