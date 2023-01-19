@@ -3,6 +3,8 @@ import { accentColor, primaryColor } from "../../../resources/colors";
 import { CartIcon } from "../CartIcon";
 import { ChatIcon } from "../ChatIcon";
 import { LogoutIcon } from "../LogoutIcon";
+import { ProfileIcon } from "../ProfileIcon";
+import { ProfileImage } from "../ProfileImage";
 import { CloseHamburgerIcon } from "./CloseHamburgerIcon";
 
 export const HamburderMenu: FC<{
@@ -20,7 +22,7 @@ export const HamburderMenu: FC<{
     width: "100%",
     height: `${window.innerHeight}px`,
     backdropFilter: "brightness(0.6) blur(2px)",
-    zIndex: 1
+    zIndex: 1,
   };
 
   const innerStyle: CSSProperties = {
@@ -47,6 +49,17 @@ export const HamburderMenu: FC<{
           className="container flex-column"
           style={{ marginTop: "2rem", gap: "1rem", alignItems: "start" }}
         >
+          <div className="container center-items">
+            {user.profileImage ? (
+              <ProfileImage user={user} />
+            ) : (
+              <ProfileIcon
+                name={user.name}
+                role={user.role}
+                userId={user.userId}
+              />
+            )}
+          </div>
           <div className="container center-items">
             <ChatIcon userId={user.userId}>
               <p

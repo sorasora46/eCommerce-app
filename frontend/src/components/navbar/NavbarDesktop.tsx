@@ -5,6 +5,7 @@ import { ChatIcon } from "./ChatIcon";
 import { Logo } from "./Logo";
 import { LogoutIcon } from "./LogoutIcon";
 import { ProfileIcon } from "./ProfileIcon";
+import { ProfileImage } from "./ProfileImage";
 
 export const NavbarDesktop: FC<{ user: any }> = ({ user }) => {
   return (
@@ -25,7 +26,11 @@ export const NavbarDesktop: FC<{ user: any }> = ({ user }) => {
       {/* ------------------ Right Navbar Container ------------------ */}
       <div className="container" style={{ color: `${accentColor}` }}>
         {/* ------------------ Profile Navbar Container ------------------ */}
-        <ProfileIcon name={user.name} role={user.role} userId={user.userId} />
+        {user.profileImage ? (
+          <ProfileImage user={user} />
+        ) : (
+          <ProfileIcon name={user.name} role={user.role} userId={user.userId} />
+        )}
         {/* ------------------ Profile Navbar Container ------------------ */}
 
         {/* ------------------ Menu Navbar Container ------------------ */}
