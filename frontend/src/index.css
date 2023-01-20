@@ -270,6 +270,8 @@ body::-webkit-scrollbar-thumb:horizontal {
 @media (max-width: 500px) {
   .product-modal-inner {
     width: 95%;
+    height: 85%;
+    padding: 0 1rem 0 1rem;
   }
   }
 }
