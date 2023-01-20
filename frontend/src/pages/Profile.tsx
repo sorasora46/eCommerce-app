@@ -32,7 +32,6 @@ export const Profile = () => {
 
   return (
     <div>
-      {/* TODO: add fetch user profile image in navbar both desktop and mobile and create mobile version of modal in product */}
       <Navbar />
       <div
         style={{
