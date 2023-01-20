@@ -250,7 +250,7 @@ body::-webkit-scrollbar-thumb:horizontal {
 
 .product-modal-inner {
   width: 50%;
-  height: 50vh;
+  height: 50%;
   border: 1px solid var(--accent-color);
   border-radius: 10px;
   background-color: var(--primary-color);
