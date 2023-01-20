@@ -237,3 +237,22 @@ body::-webkit-scrollbar-thumb:horizontal {
     padding: 1rem;
   }
 }
+
+.product-modal-outer {
+  position: fixed; /* it stay there, ignore the scrolling */
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: brightness(0.6) blur(2px);
+}
+
+.product-modal-inner {
+  width: 50%;
+  height: 50vh;
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  background-color: var(--primary-color);
+}
+
