@@ -72,7 +72,7 @@ export const ProductShowcase = () => {
         })}
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-        <div className="container flex-row" style={{ gap: "2rem" }}>
+        <div className="container flex-row modal-content" style={{ gap: "2rem" }}>
           <img
             src={`data:image/*;base64, ${products[productIndex]?.pImage}`}
             alt={`${products[productIndex]?.pName}`}

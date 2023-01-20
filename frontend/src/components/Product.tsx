@@ -110,7 +110,7 @@ export const Product: FC<{ product: any; onClick: MouseEventHandler }> = ({
         </div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-        <div className="container flex-row" style={{ gap: "2rem" }}>
+        <div className="container flex-row modal-content" style={{ gap: "2rem" }}>
           <img
             src={`data:image/*;base64, ${product.pImage}`}
             alt={`${product.pName}`}
