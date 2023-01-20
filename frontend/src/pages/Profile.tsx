@@ -37,7 +37,11 @@ export const Profile = () => {
         className="container flex-column center-items"
       >
         <UserProfile user={user} />
-        <UserCartAndTransaction userId={user.userId} />
+        {!userContext.error && userContext.userId === userId ? (
+          <UserCartAndTransaction userId={user.userId} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
