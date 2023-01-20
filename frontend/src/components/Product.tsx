@@ -119,8 +119,7 @@ export const Product: FC<{ product: any; onClick: MouseEventHandler }> = ({
               objectFit: "cover",
               border: `1px solid ${accentColor}`,
             }}
-            width="200rem"
-            height="240rem"
+            className="buy-product-modal-img"
           />
           <div
             className="container flex-column"

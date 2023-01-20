@@ -81,8 +81,7 @@ export const ProductShowcase = () => {
               objectFit: "cover",
               border: `1px solid ${accentColor}`,
             }}
-            width="200rem"
-            height="240rem"
+            className="product-modal-img"
           />
           <div
             className="container flex-column"
@@ -107,8 +106,7 @@ export const ProductShowcase = () => {
                     objectFit: "cover",
                     border: `1px solid ${accentColor}`,
                   }}
-                  width="65rem"
-                  height="65rem"
+                  className="shop-modal-img"
                 />
                 <b>By {shop?.name}</b>
               </div>
