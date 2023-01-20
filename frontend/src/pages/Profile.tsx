@@ -12,12 +12,6 @@ export const Profile = () => {
   const userContext = useContext(AuthContext);
   const [user, setUser] = useState<any>({});
 
-  // check if viewing your own profile
-  // const customerEndpoint = `customer/getcustomer/${userId}`;
-  // const shopEndpoint = `shop/getshop/${userId}`;
-  // if (!userContext.error && userContext.userId === userId) {
-  // }
-
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/user/getuser/${userId}`, {
