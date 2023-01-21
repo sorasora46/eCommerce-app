@@ -17,7 +17,7 @@ export const getCustomer = async (req: Request, res: Response) => {
       email: user.email,
       name: { ...customer.name },
       dateOfBirth: customer.dateOfBirth,
-      profileImage: customer.profileImage.toString("base64"),
+      profileImage: customer.profileImage?.toString("base64"),
       role: user.role,
     });
     // const { access_token } = req.signedCookies; // get user info from access token from cookies
