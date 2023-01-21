@@ -2,15 +2,18 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Navbar } from "../components/navbar/Navbar";
+import { PublicCustomerProfile } from "../components/profile/PublicCustomerProfile";
 import { UserCartAndTransaction } from "../components/profile/UserCartAndTransaction";
 import { UserProfile } from "../components/profile/UserProfile";
 import { AuthContext } from "../context/AuthContext";
 import { accentColor } from "../resources/colors";
 
 export const Profile = () => {
-  const { userId } = useParams();
-  const userContext = useContext(AuthContext);
-  const [user, setUser] = useState<any>({});
+  const { userId } = useParams(); // userId from url
+  const userContext = useContext(AuthContext); // logged in user
+  const [user, setUser] = useState<any>({}); // user from param
+  const isLoggedIn = !userContext.error;
+  const isSameProfile = isLoggedIn && userContext.userId === userId;
 
   useEffect(() => {
     axios
@@ -19,11 +22,13 @@ export const Profile = () => {
       })
       .then((res) => {
         setUser(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  // TODO: Create condition rendering on user's role
+  // TODO: Editable name, email and profile's picture
   return (
     <div>
       <Navbar />
@@ -36,11 +41,30 @@ export const Profile = () => {
         }}
         className="container flex-column center-items"
       >
-        <UserProfile user={user} />
-        {!userContext.error && userContext.userId === userId ? (
-          <UserCartAndTransaction userId={user.userId} />
-        ) : (
-          ""
+        <UserProfile user={user} isSameProfile={isSameProfile} />
+
+        {/* Private customer profile */}
+        {isSameProfile && userContext.role === "CUSTOMER" && (
+          <UserCartAndTransaction userId={userContext.userId} />
+        )}
+
+        {/* TODO: Create private shop profile */}
+        {isSameProfile && userContext.role === "SHOP" && (
+          <div>
+            <p>shop own profile</p>
+          </div>
+        )}
+
+        {/* TODO: Create public customer profile */}
+        {(!isSameProfile || !isLoggedIn) && user?.role === "CUSTOMER" && (
+          <PublicCustomerProfile />
+        )}
+
+        {/* TODO: Create public shop profile */}
+        {(!isSameProfile || !isLoggedIn) && user?.role === "SHOP" && (
+          <div>
+            <p>shop someone profile</p>
+          </div>
         )}
       </div>
     </div>
