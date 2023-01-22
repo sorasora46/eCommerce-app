@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { accentColor } from "../../resources/colors";
+import { accentColor, primaryColor } from "../../resources/colors";
 import { CartIcon } from "./CartIcon";
 import { ChatIcon } from "./ChatIcon";
 import { Logo } from "./Logo";
@@ -17,6 +17,10 @@ export const NavbarDesktop: FC<{ user: any }> = ({ user }) => {
         borderBottom: `2px solid ${accentColor}`,
         height: "7vh",
         alignItems: "center",
+        position: "fixed",
+        width: "100%",
+        backgroundColor: `${primaryColor}`,
+        zIndex: 1,
       }}
     >
       {/* ------------------ Logo ------------------ */}
