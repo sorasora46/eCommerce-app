@@ -3,6 +3,12 @@ import { FC, useState } from "react";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
 
+export function findMaxDate() {
+  const maxYear = new Date().getFullYear() - 16;
+  const maxDate = new Date(new Date().setFullYear(maxYear));
+  return maxDate.toISOString().split("T")[0];
+}
+
 export const CustomerRegisterForm: FC<{}> = ({}) => {
   const role = "CUSTOMER";
   const [email, setEmail] = useState<string>("");
@@ -35,12 +41,6 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
     if (password && confirmPassword && password !== confirmPassword) {
       alert("The password doesn't match with each other");
     }
-  }
-
-  function findMaxDate() {
-    const maxYear = new Date().getFullYear() - 16;
-    const maxDate = new Date(new Date().setFullYear(maxYear));
-    return maxDate.toISOString().split("T")[0];
   }
 
   return (
