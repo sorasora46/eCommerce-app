@@ -13,8 +13,8 @@ export const ProfileImage: FC<{ user: any }> = ({ user }) => {
         <img
           src={`data:image/*;base64, ${user.profileImage}`}
           alt={`profile image of ${user.userId}`}
-          width="60"
-          height="60"
+          width="40"
+          height="40"
           style={{
             borderRadius: "100%",
             objectFit: "cover",
