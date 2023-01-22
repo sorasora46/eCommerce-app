@@ -5,7 +5,7 @@ import { primaryColor } from "../../resources/colors";
 export const UserProfileTransaction: FC<{ userId: string }> = ({ userId }) => {
   return (
     <Link
-      to={userId ? `/profile/${userId}/cart` : "/login"}
+      to={userId ? `/profile/${userId}/transaction` : "/login"}
       className="container flex-column center-items logo shadow"
       style={{ color: `${primaryColor}`, gap: "1rem" }}
     >
