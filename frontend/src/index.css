@@ -296,3 +296,24 @@ body::-webkit-scrollbar-thumb:horizontal {
     width: 45%;
   }
 }
+
+@media (max-width: 800px) {
+  .profile-detail {
+    flex-direction: column;
+  }
+
+  .profile-container {
+    padding-top: 20rem;
+  }
+
+  body {
+    background-color: var(--accent-color);
+  }
+}
+
+.editable-profile {
+  font-size: 20.4px;
+  font-weight: bold;
+  color: var(--primary-color);
+  background: none;
+}
