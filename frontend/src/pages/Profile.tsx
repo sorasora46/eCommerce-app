@@ -59,9 +59,9 @@ export const Profile = () => {
       <div
         style={{
           width: "100%",
-          height: "100vh",
           backgroundColor: `${accentColor}`,
           gap: "10rem",
+          paddingTop: "30vh"
         }}
         className="container flex-column center-items profile-container"
       >
