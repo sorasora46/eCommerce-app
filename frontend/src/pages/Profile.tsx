@@ -117,7 +117,12 @@ export const Profile = () => {
               style={{ textAlign: "center" }}
             >
               <h2>
-                {userEmail}
+                <a
+                  href={`mailto:${userEmail}`}
+                  style={{ color: `${primaryColor}` }}
+                >
+                  {userEmail}
+                </a>
                 <MdEmail style={{ marginLeft: "1rem" }} />
               </h2>
             </div>
