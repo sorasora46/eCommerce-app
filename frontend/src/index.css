@@ -305,10 +305,6 @@ body::-webkit-scrollbar-thumb:horizontal {
   .profile-container {
     padding-top: 20rem;
   }
-
-  body {
-    background-color: var(--accent-color);
-  }
 }
 
 .editable-profile {
