@@ -52,7 +52,7 @@ export const Profile = () => {
   }, []);
 
   // TODO: Create condition rendering on user's role
-  // TODO: Editable name, email and profile's picture
+  // TODO: Editable name, email and profile's picture (by clicking the profile's image)
   return (
     <>
       <Navbar />
