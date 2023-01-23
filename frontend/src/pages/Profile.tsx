@@ -132,7 +132,7 @@ export const Profile = () => {
             >
               {user?.role === "CUSTOMER" && (
                 <h2>
-                  Birthdate:
+                  Birthdate:&nbsp;&nbsp;
                   {new Date(userDateOfBirth).toDateString()}
                   <MdEditCalendar style={{ marginLeft: "1rem" }} />
                 </h2>
