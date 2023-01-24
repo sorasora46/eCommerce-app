@@ -15,7 +15,7 @@ export const NavbarDesktop: FC<{ user: any }> = ({ user }) => {
         justifyContent: "space-between",
         padding: "0 5rem 0 5rem",
         borderBottom: `2px solid ${accentColor}`,
-        height: "7vh",
+        height: "6%",
         alignItems: "center",
         position: "fixed",
         width: "100%",
