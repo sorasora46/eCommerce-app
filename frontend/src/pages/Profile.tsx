@@ -84,9 +84,14 @@ export const Profile = () => {
             <img
               src={`data:image/*;base64, ${user?.profileImage}`}
               alt={`${userName}'s profile image'`}
-              style={{ objectFit: "cover", borderRadius: "50%" }}
+              style={{ objectFit: "cover", borderRadius: "50%", cursor: "pointer" }}
               width="100%"
               height="100%"
+              onClick={() => {
+                if (isSameProfile) {
+                  setIsOpen(true);
+                }
+              }}
             />
           </div>
           <div
@@ -139,9 +144,6 @@ export const Profile = () => {
               )}
             </div>
           </div>
-          {isSameProfile && (
-            <Button onClick={() => setIsOpen(true)}>Change image</Button>
-          )}
         </div>
 
         {/* Private customer profile */}
