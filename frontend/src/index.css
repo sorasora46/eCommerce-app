@@ -267,6 +267,10 @@ body::-webkit-scrollbar-thumb:horizontal {
   height: 80px;
 }
 
+.profile-container {
+  height: 100vh;
+}
+
 @media (max-width: 500px) {
   .product-modal-inner {
     width: 95%;
@@ -276,6 +280,10 @@ body::-webkit-scrollbar-thumb:horizontal {
 
   .modal-content {
     flex-direction: column;
+  }
+
+  .profile-container {
+    height: 100vh;
   }
 }
 
@@ -300,10 +308,6 @@ body::-webkit-scrollbar-thumb:horizontal {
 @media (max-width: 800px) {
   .profile-detail {
     flex-direction: column;
-  }
-
-  .profile-container {
-    padding-top: 20rem;
   }
 }
 
