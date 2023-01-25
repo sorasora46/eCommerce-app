@@ -13,18 +13,6 @@ export const PublicCustomerProfile = () => {
     <div>
       <p>customer profile of {userId}</p>
       <br />
-      <p onClick={() => {
-        // TODO: Check if this user is a friend
-        // TODO: post a request to server to add this user to friend list
-      }}>
-        Add friend <MdOutlinePersonAddAlt />
-      </p>
-      <p onClick={() => {
-        // TODO: Check if this user is a friend
-        // TODO: post a request to server to remove this user from friend list
-      }}>
-        Unfriend <MdOutlinePersonRemove />
-      </p>
       <p>
         Chat <MdMessage />
       </p>
