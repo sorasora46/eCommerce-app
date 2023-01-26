@@ -5,15 +5,19 @@ import {
   MdOutlinePersonRemove,
   MdOutlinePersonOff,
 } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // TODO: Add functionality to each of menu
 export const PublicCustomerProfile = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
+
   return (
     <div>
       <p>customer profile of {userId}</p>
       <br />
-      <p>
+      <p onClick={() => {
+        navigate(`/chat/${userId}`)
+      }}>
         Chat <MdMessage />
       </p>
       <p>
