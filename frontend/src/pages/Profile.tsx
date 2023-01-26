@@ -105,8 +105,10 @@ export const Profile = () => {
               <h2
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  const name = prompt("Enter new name");
-                  console.log(name);
+                  if (isSameProfile) {
+                    const name = prompt("Enter new name");
+                    console.log(name);
+                  }
                   // TODO: Send request to api endpoint with axios
                   // TODO: !important Rebuild backend api endpoint
                 }}
