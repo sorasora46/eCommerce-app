@@ -125,7 +125,7 @@ export const Profile = () => {
             >
               <h2>
                 <a
-                  href={`mailto:${userEmail}`}
+                  href={!isSameProfile ? `mailto:${userEmail}` : ""}
                   style={{ color: `${primaryColor}` }}
                 >
                   {userEmail}
