@@ -1,11 +1,5 @@
 import { useContext } from "react";
-import {
-  MdOutlinePersonAddAlt,
-  MdMessage,
-  MdOutlineError,
-  MdOutlinePersonRemove,
-  MdOutlinePersonOff,
-} from "react-icons/md";
+import { MdMessage, MdOutlineError, MdOutlinePersonOff } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 // TODO: Add functionality to each of menu
@@ -18,9 +12,11 @@ export const PublicCustomerProfile = () => {
     <div>
       <p>customer profile of {userId}</p>
       <br />
-      <p onClick={() => {
-        navigate(`/chat/${userContext.userId}?with=${userId}`)
-      }}>
+      <p
+        onClick={() => {
+          navigate(`/chat/${userContext.userId}?with=${userId}`);
+        }}
+      >
         Chat <MdMessage />
       </p>
       <p>
