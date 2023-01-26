@@ -16,13 +16,14 @@ export const PublicCustomerProfile = () => {
         onClick={() => {
           navigate(`/chat/${userContext.userId}?with=${userId}`);
         }}
+        style={{ cursor: "pointer" }}
       >
         Chat <MdMessage />
       </p>
-      <p>
+      <p style={{ cursor: "pointer" }}>
         Report <MdOutlineError />
       </p>
-      <p>
+      <p style={{ cursor: "pointer" }}>
         Block <MdOutlinePersonOff />
       </p>
     </div>
