@@ -84,7 +84,11 @@ export const Profile = () => {
             <img
               src={`data:image/*;base64, ${user?.profileImage}`}
               alt={`${userName}'s profile image'`}
-              style={{ objectFit: "cover", borderRadius: "50%", cursor: "pointer" }}
+              style={{
+                objectFit: "cover",
+                borderRadius: "50%",
+                cursor: "pointer",
+              }}
               width="100%"
               height="100%"
               onClick={() => {
