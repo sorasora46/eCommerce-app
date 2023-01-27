@@ -107,7 +107,7 @@ export const Profile = () => {
               style={{ textAlign: "center" }}
             >
               <h2
-                style={{ cursor: "pointer" }}
+                style={{ cursor: isSameProfile ? "pointer" : "" }}
                 onClick={() => {
                   if (isSameProfile) {
                     const name = prompt("Enter new name");
