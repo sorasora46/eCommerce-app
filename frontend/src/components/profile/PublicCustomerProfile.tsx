@@ -12,6 +12,7 @@ export const PublicCustomerProfile = () => {
     <div className="container flex-column center-items">
       <ul style={{ display: "flex", gap: "1rem", fontSize: "16px" }}>
         <li
+          className="shadow"
           onClick={() => {
             navigate(`/chat/${userContext.userId}?with=${userId}`);
           }}
@@ -19,10 +20,22 @@ export const PublicCustomerProfile = () => {
         >
           Chat <MdMessage />
         </li>
-        <li style={{ cursor: "pointer" }}>
+        <li
+          className="shadow"
+          onClick={() => {
+            // TODO: Create endpoint for report user
+          }}
+          style={{ cursor: "pointer" }}
+        >
           Report <MdOutlineError />
         </li>
-        <li style={{ cursor: "pointer" }}>
+        <li
+          className="shadow"
+          onClick={() => {
+            // TODO: Create endpoint for blocked user
+          }}
+          style={{ cursor: "pointer" }}
+        >
           Block <MdOutlinePersonOff />
         </li>
       </ul>
