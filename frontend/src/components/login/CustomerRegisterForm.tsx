@@ -22,17 +22,21 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
   const [fileName, setFileName] = useState<string>("");
 
   function handleRegister() {
+    if (!file) {
+      alert("Profile picture is missing!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("profileImage", file);
+    formData.set("email", email);
+    formData.set("password", password);
+    formData.set("role", role);
+    formData.set("name", JSON.stringify({ fname: fname, lname: lname }));
+    formData.set("dateOfBirth", dateOfBirth);
+
     axios
-      .post("http://127.0.0.1:8000/user/register", {
-        email: email,
-        password: password,
-        role: role,
-        name: {
-          fname: fname,
-          lname: lname,
-        },
-        dateOfBirth: dateOfBirth,
-      })
+      .post("http://127.0.0.1:8000/user/register", formData)
       .then((res) => {
         alert("Registeration Success!");
         window.location.href = "http://127.0.0.1:5173/login";
@@ -50,6 +54,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
     <div>
       <h2 style={{ textAlign: "center" }}>Customer Register</h2>
       <form
+        encType="multipart/form-data"
         onSubmit={(e) => {
           handleRegister();
           setEmail("");
@@ -181,6 +186,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
             Choose an image
           </label>
           <input
+            name="profileImage"
             id="img-file"
             style={{ visibility: "hidden" }}
             type="file"
@@ -190,7 +196,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
               setFileName(e.target.files?.[0].name || "");
             }}
           />
-          <p style={{ color: `${accentColor}`}}>{fileName || ""}</p>
+          <p style={{ color: `${accentColor}` }}>{fileName || ""}</p>
         </div>
         <div
           id="login-register-buttons"
