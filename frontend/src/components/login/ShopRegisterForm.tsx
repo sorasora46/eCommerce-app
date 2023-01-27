@@ -14,13 +14,20 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
   const [fileName, setFileName] = useState<string>("");
 
   function handleRegister() {
+    if (!file) {
+      alert("Profile picture is missing!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("profileImage", file);
+    formData.set("email", email);
+    formData.set("password", password);
+    formData.set("role", role);
+    formData.set("name", name);
+
     axios
-      .post("http://127.0.0.1:8000/user/register", {
-        email: email,
-        password: password,
-        role: role,
-        name: name,
-      })
+      .post("http://127.0.0.1:8000/user/register", formData)
       .then((res) => {
         alert("Registeration Success!");
         window.location.href = "http://127.0.0.1:5173/login";
