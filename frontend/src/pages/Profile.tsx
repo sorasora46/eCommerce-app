@@ -24,6 +24,7 @@ export const Profile = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const [file, setFile] = useState<any>(null);
+  const [fileName, setFileName] = useState<string>("");
 
   useEffect(() => {
     axios
@@ -187,7 +188,10 @@ export const Profile = () => {
             required
             type="file"
             accept="image/*"
-            onChange={(e) => setFile(e.target.files?.[0])}
+            onChange={(e) => {
+              setFile(e.target.files?.[0]);
+              setFileName(e.target.files?.[0].name || "");
+            }}
           />
           <div className="container flex-row">
             <Button onClick={() => setIsOpen(false)}>Close</Button>
