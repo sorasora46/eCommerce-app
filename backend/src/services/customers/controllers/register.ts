@@ -8,9 +8,11 @@ import { resetRegister } from "../../../helpers/resetRegister.js";
 export const register = async (req: Request, res: Response) => {
   try {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
-    const { email, fname, lname, dateOfBirth } = req.body;
+    const { email, name, dateOfBirth } = req.body;
     const { buffer } = req.file
     const { userId } = await User.findOne({ email: email });
+
+    const { fname, lname } = JSON.parse(name)
 
     if (fname && lname && dateOfBirth) {
       const result = await createCustomer(
