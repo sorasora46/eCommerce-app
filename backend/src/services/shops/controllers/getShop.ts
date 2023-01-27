@@ -16,6 +16,7 @@ export const getShop = async (req: Request, res: Response) => {
       name: shop.name,
       role: shopUserInfo.role,
       email: shopUserInfo.email,
+      profileImage: shop.profileImage.toString("base64"),
     });
   } catch (error: any) {
     console.log(error);
