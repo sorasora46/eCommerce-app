@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FC, useState } from "react";
+import { accentColor } from "../../resources/colors";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
 
@@ -9,6 +10,8 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [file, setFile] = useState<any>(null);
+  const [fileName, setFileName] = useState<string>("");
 
   function handleRegister() {
     axios
@@ -117,6 +120,27 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
             isRequired={true}
             id="shop-name"
           />
+        </div>
+        <div
+          id="image-input-container"
+          className="container flex-column center-items"
+          style={{ width: "100%", marginBottom: "1rem" }}
+        >
+          <label htmlFor="img-file" className="file-input">
+            Choose an image
+          </label>
+          <input
+            id="img-file"
+            style={{ visibility: "hidden" }}
+            required
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              setFile(e.target.files?.[0]);
+              setFileName(e.target.files?.[0].name || "");
+            }}
+          />
+          <p style={{ color: `${accentColor}` }}>{fileName || ""}</p>
         </div>
         <div
           id="login-register-buttons"
