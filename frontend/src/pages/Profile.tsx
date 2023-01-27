@@ -178,7 +178,13 @@ export const Profile = () => {
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
         <div className="container flex-column">
+          <label htmlFor="img-file" className="file-input">
+            Choose an image
+          </label>
           <input
+            id="img-file"
+            style={{ visibility: "hidden" }}
+            required
             type="file"
             accept="image/*"
             onChange={(e) => setFile(e.target.files?.[0])}
