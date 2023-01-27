@@ -183,7 +183,6 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           <input
             id="img-file"
             style={{ visibility: "hidden" }}
-            required
             type="file"
             accept="image/*"
             onChange={(e) => {
