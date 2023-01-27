@@ -12,20 +12,23 @@ export const PublicCustomerProfile = () => {
     <div>
       <p>customer profile of {userId}</p>
       <br />
-      <p
-        onClick={() => {
-          navigate(`/chat/${userContext.userId}?with=${userId}`);
-        }}
-        style={{ cursor: "pointer" }}
-      >
-        Chat <MdMessage />
-      </p>
-      <p style={{ cursor: "pointer" }}>
-        Report <MdOutlineError />
-      </p>
-      <p style={{ cursor: "pointer" }}>
-        Block <MdOutlinePersonOff />
-      </p>
+      <ul>
+        <li
+          onClick={() => {
+            navigate(`/chat/${userContext.userId}?with=${userId}`);
+          }}
+          style={{ cursor: "pointer", width: "autho" }}
+        >
+          Chat <MdMessage />
+        </li>
+        <li style={{ cursor: "pointer" }}>
+          Report <MdOutlineError />
+        </li>
+        <li style={{ cursor: "pointer" }}>
+          Block <MdOutlinePersonOff />
+        </li>
+      </ul>
+      <p></p>
     </div>
   );
 };
