@@ -9,15 +9,13 @@ export const PublicCustomerProfile = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <p>customer profile of {userId}</p>
-      <br />
-      <ul>
+    <div className="container flex-column center-items">
+      <ul style={{ display: "flex", gap: "1rem", fontSize: "16px" }}>
         <li
           onClick={() => {
             navigate(`/chat/${userContext.userId}?with=${userId}`);
           }}
-          style={{ cursor: "pointer", width: "autho" }}
+          style={{ cursor: "pointer" }}
         >
           Chat <MdMessage />
         </li>
