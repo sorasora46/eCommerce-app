@@ -7,11 +7,12 @@ import { resetRegister } from "../../../helpers/resetRegister.js";
 export const register = async (req: Request, res: Response) => {
   try {
     await mongoose.connect("mongodb://localhost:27018/eCommerce-app-db");
-    const { email, name, profileImage } = req.body;
+    const { email, name } = req.body;
+    const { buffer } = req.file
     const { userId } = await User.findOne({ email: email });
 
     if (name) {
-      const result = await createShop(userId, name, profileImage);
+      const result = await createShop(userId, name, buffer);
       return res.json(result);
     }
 
@@ -27,7 +28,7 @@ export const register = async (req: Request, res: Response) => {
 export const createShop = async (
   userId: string,
   name: string,
-  profileImage: string
+  profileImage: Buffer
 ) => {
   const newShop = await Shop.create({
     userId: userId,
