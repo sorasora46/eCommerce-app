@@ -5,7 +5,6 @@ import { ShopRegisterForm } from "../components/login/ShopRegisterForm";
 
 export const Register = () => {
   // TODO: Add icon to form
-  // TODO: Add file (image only) uploader for both of them (set to required)
   return (
     <Container
       width={"100%"}
