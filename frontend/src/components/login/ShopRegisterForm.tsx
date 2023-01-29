@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { accentColor } from "../../resources/colors";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
+import { MdEmail, MdPassword, MdEdit, MdImage } from "react-icons/md";
 
 export const ShopRegisterForm: FC<{}> = ({}) => {
   const role = "SHOP";
@@ -65,7 +66,9 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="email">
-            <h3>Email</h3>
+            <h3>
+              Email <MdEmail />
+            </h3>
           </label>
           <Textfield
             placeholder="Email"
@@ -82,7 +85,9 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="password">
-            <h3>Password</h3>
+            <h3>
+              Password <MdPassword />
+            </h3>
           </label>
           <Textfield
             placeholder="Password"
@@ -99,7 +104,9 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="confirm-password">
-            <h3>Confirm Password</h3>
+            <h3>
+              Confirm Password <MdPassword />
+            </h3>
           </label>
           <Textfield
             placeholder="Confirm Password"
@@ -117,7 +124,9 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="shop-name">
-            <h3>Shop's Name</h3>
+            <h3>
+              Shop's Name <MdEdit />
+            </h3>
           </label>
           <Textfield
             placeholder="Shop's Name"
@@ -134,7 +143,7 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
           style={{ width: "100%", marginBottom: "1rem" }}
         >
           <label htmlFor="img-file" className="file-input">
-            Choose an image
+            Choose an image <MdImage />
           </label>
           <input
             id="img-file"

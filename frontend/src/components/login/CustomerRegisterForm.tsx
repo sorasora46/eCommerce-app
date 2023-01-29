@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { accentColor } from "../../resources/colors";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
+import { MdEmail, MdPassword, MdEdit, MdImage } from "react-icons/md";
 
 export function findMaxDate() {
   const maxYear = new Date().getFullYear() - 16;
@@ -78,7 +79,9 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="email">
-            <h3>Email</h3>
+            <h3>
+              Email <MdEmail />
+            </h3>
           </label>
           <Textfield
             placeholder="Email"
@@ -95,7 +98,9 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="password">
-            <h3>Password</h3>
+            <h3>
+              Password <MdPassword />
+            </h3>
           </label>
           <Textfield
             placeholder="Password"
@@ -112,7 +117,9 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           style={{ marginBottom: "1rem" }}
         >
           <label htmlFor="confirm-password">
-            <h3>Confirm Password</h3>
+            <h3>
+              Confirm Password <MdPassword />
+            </h3>
           </label>
           <Textfield
             placeholder="Confirm Password"
@@ -131,7 +138,9 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
             style={{ marginBottom: "1rem" }}
           >
             <label htmlFor="fname">
-              <h3>Firstname</h3>
+              <h3>
+                Firstname <MdEdit />
+              </h3>
             </label>
             <Textfield
               placeholder="Firstname"
@@ -148,7 +157,9 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
             style={{ marginBottom: "1rem" }}
           >
             <label htmlFor="lname">
-              <h3>Lastname</h3>
+              <h3>
+                Lastname <MdEdit />
+              </h3>
             </label>
             <Textfield
               placeholder="Lastname"
@@ -183,7 +194,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
           style={{ width: "100%", marginBottom: "1rem" }}
         >
           <label htmlFor="img-file" className="file-input">
-            Choose an image
+            Choose an image <MdImage />
           </label>
           <input
             name="profileImage"
