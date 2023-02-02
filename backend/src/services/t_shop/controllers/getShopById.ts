@@ -4,10 +4,10 @@ import { Shop } from "../models/shop.model.js";
 export default function getShopById(req: Request, res: Response) {
   try {
     const { userId } = req.params;
-    Shop.findOne({ userId: userId }, (err: any, customer: any) => {
-      if (err) throw err;
-      console.log(customer);
-      res.send(customer);
+    Shop.findOne({ userId: userId }, (err: any, shop: any) => {
+      if (err) return res.send(err.message);
+      console.log(shop);
+      res.send(shop);
     });
   } catch (err: any) {
     console.log(err.message);

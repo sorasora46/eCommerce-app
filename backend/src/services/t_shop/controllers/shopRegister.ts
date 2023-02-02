@@ -11,7 +11,7 @@ export default function shopRegister(req: Request, res: Response) {
       name: name,
       profileImage: imageBuffer
     }, (err: any, result: any) => {
-      if (err) throw err;
+      if (err) return res.send(err.message)
       console.log(result);
       res.send(result)
     })
