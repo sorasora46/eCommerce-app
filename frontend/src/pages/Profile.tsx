@@ -192,9 +192,15 @@ export const Profile = () => {
               setFileName(e.target.files?.[0].name || "");
             }}
           />
-          <div className="container flex-row center-items">
-            <Button onClick={() => setIsOpen(false)}>Close</Button>
+          <div
+            className="container flex-row center-items"
+            style={{ gap: "1rem" }}
+          >
+            <Button className="custom-button" onClick={() => setIsOpen(false)}>
+              Close
+            </Button>
             <Button
+              className="custom-button"
               onClick={() => {
                 // TODO: Send request to api endpoint
                 // TODO: Create endpoint for updating profile image
