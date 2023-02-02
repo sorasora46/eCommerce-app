@@ -4,6 +4,7 @@ import { accentColor } from "../../resources/colors";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
 import { MdEmail, MdPassword, MdEdit, MdImage } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export function findMaxDate() {
   const maxYear = new Date().getFullYear() - 16;
@@ -21,6 +22,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
   const [dateOfBirth, setDateOfBirth] = useState<string>(findMaxDate());
   const [file, setFile] = useState<any>(null);
   const [fileName, setFileName] = useState<string>("");
+  const navigate = useNavigate();
 
   function handleRegister() {
     if (!file) {
@@ -212,14 +214,12 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
         <div
           id="login-register-buttons"
           className="container flex-row center-items"
+          style={{ marginTop: "20px", gap: "1rem" }}
         >
-          <Button
-            type="submit"
-            className="custom-button"
-            style={{ marginTop: "20px" }}
-          >
+          <Button type="submit" className="custom-button">
             Register
           </Button>
+          <Button className="custom-button" onClick={() => navigate("/")}>Go back</Button>
         </div>
       </form>
     </div>

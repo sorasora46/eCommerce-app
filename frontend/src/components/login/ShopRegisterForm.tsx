@@ -4,6 +4,7 @@ import { accentColor } from "../../resources/colors";
 import { Button } from "../Button";
 import { Textfield } from "../Textfield";
 import { MdEmail, MdPassword, MdEdit, MdImage } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export const ShopRegisterForm: FC<{}> = ({}) => {
   const role = "SHOP";
@@ -13,6 +14,7 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
   const [name, setName] = useState<string>("");
   const [file, setFile] = useState<any>(null);
   const [fileName, setFileName] = useState<string>("");
+  const navigate = useNavigate();
 
   function handleRegister() {
     if (!file) {
@@ -160,14 +162,12 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
         <div
           id="login-register-buttons"
           className="container flex-row center-items"
+          style={{ marginTop: "20px", gap: "1rem" }}
         >
-          <Button
-            type="submit"
-            className="custom-button"
-            style={{ marginTop: "20px" }}
-          >
+          <Button type="submit" className="custom-button">
             Register
           </Button>
+          <Button className="custom-button" onClick={() => navigate("/")}>Go back</Button>
         </div>
       </form>
     </div>
