@@ -9,6 +9,8 @@ import userRoute from "./services/users/index.js";
 import customerRoute from "./services/customers/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import _customerRoute from "./services/t_customer/index.js";
+import _shopRoute from "./services/t_shop/index.js";
 
 const app: Express = express();
 const PORT = 8000;
@@ -42,5 +44,8 @@ app.use("/shop", shopRoute);
 app.use("/transaction", transactionRoute);
 app.use("/user", userRoute);
 app.use("/customer", customerRoute);
+
+app.use("/t_customer", _customerRoute);
+app.use("/t_shop", _shopRoute);
 
 app.listen(PORT, domain, () => console.log(`Server running at PORT:${PORT}`));
