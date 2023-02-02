@@ -177,7 +177,7 @@ export const Profile = () => {
           </div>
         )}
       </div>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+      <Modal className="file-modal" isOpen={isOpen} setIsOpen={setIsOpen}>
         <div className="container flex-column">
           <label htmlFor="img-file" className="file-input">
             Choose an image
@@ -192,7 +192,7 @@ export const Profile = () => {
               setFileName(e.target.files?.[0].name || "");
             }}
           />
-          <div className="container flex-row">
+          <div className="container flex-row center-items">
             <Button onClick={() => setIsOpen(false)}>Close</Button>
             <Button
               onClick={() => {
