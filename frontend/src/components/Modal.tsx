@@ -7,7 +7,8 @@ export const Modal: FC<{
   onClose?: Function;
   children?: ReactNode;
   style?: CSSProperties;
-}> = ({ isOpen, setIsOpen, onClose, children, style }) => {
+  className?: string;
+}> = ({ isOpen, setIsOpen, onClose, children, style, className }) => {
   const outerStyle: CSSProperties = {
     display: `${isOpen ? "flex" : "none"}`,
   };
@@ -21,7 +22,7 @@ export const Modal: FC<{
       <div
       style={style}
         onClick={(e) => e.stopPropagation()}
-        className="container center-items product-modal-inner"
+        className={`container center-items product-modal-inner ${className}`}
       >
         {children}
       </div>
