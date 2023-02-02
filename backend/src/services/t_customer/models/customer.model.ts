@@ -3,10 +3,8 @@ import { Schema, model } from "mongoose";
 export interface ICustomer {
   userId: string;
   email: string;
-  name: {
-    fname: string;
-    lname: string;
-  };
+  fname: string;
+  lname: string;
   dateOfBirth: Date;
   profileImage: Buffer;
 }
@@ -14,10 +12,8 @@ export interface ICustomer {
 const customerSchema = new Schema<ICustomer>({
   userId: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
-  name: {
-    fname: { type: String, required: true },
-    lname: { type: String, required: true },
-  },
+  fname: { type: String, required: true },
+  lname: { type: String, required: true },
   dateOfBirth: { type: Date, required: true },
   profileImage: { type: Buffer, required: true },
 });
