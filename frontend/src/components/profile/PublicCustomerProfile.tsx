@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MdMessage, MdOutlineError, MdOutlinePersonOff } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { primaryColor } from "../../resources/colors";
 // TODO: Add functionality to each of menu
 export const PublicCustomerProfile = () => {
   const { userId } = useParams();
@@ -10,7 +11,7 @@ export const PublicCustomerProfile = () => {
 
   return (
     <div className="container flex-column center-items">
-      <ul style={{ display: "flex", gap: "1rem", fontSize: "16px" }}>
+      <ul style={{ display: "flex", gap: "1rem", fontSize: "16px", color: `${primaryColor}` }}>
         <li
           className="shadow"
           onClick={() => {
