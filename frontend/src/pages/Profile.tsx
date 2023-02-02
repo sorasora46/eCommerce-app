@@ -110,6 +110,7 @@ export const Profile = () => {
               <h2
                 style={{ cursor: isSameProfile ? "pointer" : "" }}
                 onClick={() => {
+                  // Changing name
                   if (isSameProfile) {
                     const name = prompt("Enter new name");
                     console.log(name);
@@ -165,7 +166,7 @@ export const Profile = () => {
           </div>
         )}
 
-        {/* TODO: Create public customer profile */}
+        {/* Public customer profile */}
         {(!isSameProfile || !isLoggedIn) && user?.role === "CUSTOMER" && (
           <PublicCustomerProfile />
         )}
