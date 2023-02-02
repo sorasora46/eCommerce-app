@@ -18,4 +18,6 @@ const customerSchema = new Schema<ICustomer>({
   profileImage: { type: Buffer, required: true },
 });
 
+customerSchema.index({ fname: 1, lname: 1 }, { unique: true });
+
 export const Customer = model("Customer", customerSchema);
