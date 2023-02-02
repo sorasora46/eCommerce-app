@@ -5,7 +5,7 @@ export default function getCustomerById(req: Request, res: Response) {
   try {
     const { userId } = req.params;
     Customer.findOne({ userId: userId }, (err: any, customer: any) => {
-      if (err) throw err;
+      if (err) return res.send(err.message);
       console.log(customer);
       res.send(customer);
     });

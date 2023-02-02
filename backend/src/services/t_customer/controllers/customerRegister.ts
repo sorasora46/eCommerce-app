@@ -16,7 +16,7 @@ export default function customerRegister(req: Request, res: Response) {
       dateOfBirth: new Date(dateOfBirth),
       profileImage: imageBuffer
     }, (err: any, result: any) => {
-      if (err) throw err;
+      if (err) return res.send(err.message)
       console.log(result);
       res.send(result)
     })
