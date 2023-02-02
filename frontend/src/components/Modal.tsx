@@ -6,7 +6,8 @@ export const Modal: FC<{
   setIsOpen: Function;
   onClose?: Function;
   children?: ReactNode;
-}> = ({ isOpen, setIsOpen, onClose, children }) => {
+  style?: CSSProperties;
+}> = ({ isOpen, setIsOpen, onClose, children, style }) => {
   const outerStyle: CSSProperties = {
     display: `${isOpen ? "flex" : "none"}`,
   };
@@ -18,6 +19,7 @@ export const Modal: FC<{
       className="container center-items product-modal-outer"
     >
       <div
+      style={style}
         onClick={(e) => e.stopPropagation()}
         className="container center-items product-modal-inner"
       >
