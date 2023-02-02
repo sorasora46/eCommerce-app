@@ -37,6 +37,11 @@ app.use(
 );
 app.use(cookieParser("very secret cookie_secret string"));
 
+mongoose
+  .connect("mongodb://localhost:27018/eCommerce-app-db")
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.error(err.message));
+
 app.use("/auth", authenticationRoute);
 app.use("/cart", cartRoute);
 app.use("/product", productRoute);
