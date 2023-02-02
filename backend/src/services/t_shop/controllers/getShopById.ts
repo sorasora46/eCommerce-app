@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
 
-export default function (req: Request, res: Response) {
+export default function getShopById(req: Request, res: Response) {
   res.send("hi");
 }
