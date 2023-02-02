@@ -338,3 +338,8 @@ body::-webkit-scrollbar-thumb:horizontal {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
+
+.file-modal {
+  width: 25rem;
+  height: 15rem;
+}
