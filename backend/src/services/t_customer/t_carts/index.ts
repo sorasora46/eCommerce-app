@@ -7,7 +7,12 @@ import updateProductInCart from "./controllers/updateProductInCart.js";
 
 const router = Router({ mergeParams: true });
 
-router.get("/", getProductsInCart);
+/** Cart is not actually a data object.
+ * It's a representation of array of products that
+ * customer put it together
+ */
+
+router.get("/getproducts", getProductsInCart);
 router.delete("/clearcart", clearCart);
 router.delete("/remove/:productId", removeProductFromCart);
 router.put("/update/:productId", updateProductInCart);
