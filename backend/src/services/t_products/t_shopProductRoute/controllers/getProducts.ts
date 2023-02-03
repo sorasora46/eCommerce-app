@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Product } from "../models/product.model.js";
+import { Product } from "../../models/product.model.js";
 
 export default function getProducts(req: Request, res: Response) {
   try {

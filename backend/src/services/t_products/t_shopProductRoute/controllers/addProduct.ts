@@ -1,20 +1,20 @@
 import { Request, Response } from "express";
-import { Product } from "../models/product.model.js";
+import { Product } from "../../models/product.model.js";
 
 export default function addProduct(req: Request, res: Response) {
   try {
     const { productId, productName, productPrice, productAmount } = req.body;
     const { userId } = req.params; // shop owner's userId
-    const imageBuffer = req.file.buffer;
+    const productImage = req.file.buffer;
 
     Product.create(
       {
-        productId: productId,
-        productName: productName,
-        productPrice: productPrice,
-        productAmount: productAmount,
+        productId,
+        productName,
+        productPrice,
+        productAmount,
         productOwner: userId,
-        productImage: imageBuffer,
+        productImage,
       },
       (err: any, result: any) => {
         if (err) return res.send(err.message);
