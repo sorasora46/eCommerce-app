@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
-import {
-  ITransactionProduct,
-  Transaction,
-} from "../models/transaction.model.js";
+import { IProduct } from "../../t_products/models/product.model.js";
+import { Transaction } from "../models/transaction.model.js";
 
 export default function createTransactionForId(req: Request, res: Response) {
   try {
@@ -16,19 +14,19 @@ export default function createTransactionForId(req: Request, res: Response) {
 
     // calculate the total amount
     const transactionAmount = transactionProducts.reduce(
-      (total: number, product: ITransactionProduct) =>
+      (total: number, product: IProduct) =>
         total + product.productPrice * product.productAmount,
       0
     );
 
     Transaction.create(
       {
-        transactionId: transactionId,
+        transactionId,
         transactionFrom: userId,
-        transactionTo: transactionTo,
-        transactionDate: new Date(transactionDate),
-        transactionAmount: transactionAmount,
-        transactionProducts: transactionProducts,
+        transactionTo,
+        transactionDate,
+        transactionAmount,
+        transactionProducts,
       },
       (err: any, result: any) => {
         if (err) return res.send(err.message);
