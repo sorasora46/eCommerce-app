@@ -4,13 +4,13 @@ import { Shop } from "../models/shop.model.js";
 export default function shopRegister(req: Request, res: Response) {
   try {
     const { userId, email, name } = req.body;
-    const imageBuffer = req.file.buffer;
+    const profileImage = req.file.buffer;
     Shop.create(
       {
-        userId: userId,
-        email: email,
-        name: name,
-        profileImage: imageBuffer,
+        userId,
+        email,
+        name,
+        profileImage,
       },
       (err: any, result: any) => {
         if (err) return res.send(err.message);
