@@ -1,5 +1,11 @@
 import { Schema, model } from "mongoose";
 
+export enum CartProductStatus {
+  "waiting",
+  "shipping",
+  "waiting to recieve",
+}
+
 export interface ICart {
   userId: string;
   status: string;
