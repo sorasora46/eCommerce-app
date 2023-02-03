@@ -44,13 +44,13 @@ mongoose
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error(err.message));
 
-app.use("/auth", authenticationRoute);
-app.use("/cart", cartRoute);
-app.use("/product", productRoute);
-app.use("/shop", shopRoute);
-app.use("/transaction", transactionRoute);
-app.use("/user", userRoute);
-app.use("/customer", customerRoute);
+// app.use("/auth", authenticationRoute);
+// app.use("/cart", cartRoute);
+// app.use("/product", productRoute);
+// app.use("/shop", shopRoute);
+// app.use("/transaction", transactionRoute);
+// app.use("/user", userRoute);
+// app.use("/customer", customerRoute);
 
 app.use("/t_customer", _customerRoute);
 app.use("/t_shop", _shopRoute);
