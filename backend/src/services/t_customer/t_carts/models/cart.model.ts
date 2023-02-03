@@ -25,4 +25,6 @@ const cartSchema = new Schema<ICart>({
   productAmount: { type: Number, required: true },
 });
 
+cartSchema.index({ userId: 1, productId: 1 }, { unique: true });
+
 export const Cart = model("Cart", cartSchema);
