@@ -14,13 +14,8 @@ export interface IUpdateCart {
 export interface ICart {
   userId: string;
   status: string;
-  shopName: string;
-  shopId: string;
   productId: string;
   productAmount: number;
-  productName: string;
-  productPrice: number;
-  productImage: Buffer;
 }
 
 const cartSchema = new Schema<ICart>({
@@ -28,11 +23,6 @@ const cartSchema = new Schema<ICart>({
   productId: { type: String, required: true },
   status: { type: String, required: true }, // waiting for payment, shipping, waiting for recieved confirmation
   productAmount: { type: Number, required: true },
-  productName: { type: String, required: true },
-  productPrice: { type: Number, required: true },
-  shopName: { type: String, required: true },
-  shopId: { type: String, required: true },
-  productImage: { type: Buffer, required: true },
 });
 
 export const Cart = model("Cart", cartSchema);
