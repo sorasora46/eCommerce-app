@@ -1,5 +1,12 @@
 import { Schema, model } from "mongoose";
 
+export interface IUpdateProduct {
+  productName?: string;
+  productPrice?: number;
+  productAmount?: number;
+  productImage?: Buffer;
+}
+
 export interface IProduct {
   productId: string;
   productName: string;
