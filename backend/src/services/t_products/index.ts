@@ -1,18 +1,10 @@
 import { Router } from "express";
-import multer from "multer";
-import addProduct from "./controllers/addProduct.js";
 import getProductById from "./controllers/getProductById.js";
-import getProducts from "./controllers/getProducts.js";
+import _shopProductRoute from "./t_shopProductRoute/index.js";
 
 const router = Router();
-const upload = multer();
 
-router.post(
-  "/shop/:userId/addproduct",
-  upload.single("productImage"),
-  addProduct
-);
-router.get("/shop/:userId/getproducts", getProducts);
+router.use("/shop/:userId", _shopProductRoute);
 router.get("/:productId", getProductById);
 
 export default router;
