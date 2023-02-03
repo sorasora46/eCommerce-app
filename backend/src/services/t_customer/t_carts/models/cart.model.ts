@@ -6,6 +6,11 @@ export enum CartProductStatus {
   "waiting to recieve",
 }
 
+export interface IUpdateCart {
+  status?: CartProductStatus;
+  productAmount?: number;
+}
+
 export interface ICart {
   userId: string;
   status: string;
