@@ -1,12 +1,5 @@
 import { Schema, model } from "mongoose";
-
-export interface ITransactionProduct {
-  productId: string;
-  productName: string;
-  productOwner: string;
-  productPrice: number;
-  productAmount: number;
-}
+import { IProduct } from "../../t_products/models/product.model.js";
 
 export interface ITransaction {
   transactionId: string;
@@ -14,7 +7,7 @@ export interface ITransaction {
   transactionTo: string; // userId
   transactionDate: Date;
   transactionAmount: number; // total price
-  transactionProducts: ITransactionProduct[];
+  transactionProducts: IProduct[];
 }
 
 const transactionSchema = new Schema<ITransaction>({
