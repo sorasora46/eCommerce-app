@@ -14,6 +14,7 @@ const router = Router({ mergeParams: true });
 
 router.get("/getproducts", getProductsInCart);
 router.delete("/clearcart", clearCart);
+router.post("/addproduct/:productId", addProductToCart);
 router.delete("/remove/:productId", removeProductFromCart);
 router.put("/update/:productId", updateProductInCart);
 
