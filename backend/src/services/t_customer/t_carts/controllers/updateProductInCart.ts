@@ -7,8 +7,8 @@ export default function updateProductInCart(req: Request, res: Response) {
     const { status, productAmount } = req.body;
 
     const updatedData: IUpdateCart = {};
-    if (status) updatedData.status = status;
-    if (productAmount) updatedData.productAmount = productAmount;
+    if (status && !productAmount) updatedData.status = status;
+    if (!status && productAmount) updatedData.productAmount = productAmount;
 
     Cart.findOneAndUpdate(
       { userId: userId, productId: productId },
