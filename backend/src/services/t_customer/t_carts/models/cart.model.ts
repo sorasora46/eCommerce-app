@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose";
 
 export enum CartProductStatus {
-  "waiting",
-  "shipping",
-  "waiting to recieve",
+  WAITING = "waiting",
+  SHIPPING = "shipping",
+  WAITING_TO_RECIEVE = "waiting to recieve",
 }
 
 export interface IUpdateCart {
