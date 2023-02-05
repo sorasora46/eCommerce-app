@@ -5,7 +5,7 @@ export default function addProductToCart(req: Request, res: Response) {
   try {
     const { productAmount } = req.body;
     const { userId, productId } = req.params;
-    const status = CartProductStatus.waiting;
+    const status = CartProductStatus.WAITING;
 
     Cart.create(
       {
