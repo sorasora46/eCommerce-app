@@ -1,15 +1,11 @@
 import { Request, Response } from "express";
+import { nanoid } from "nanoid";
 import { IProduct } from "../../t_products/models/product.model.js";
 import { Transaction } from "../models/transaction.model.js";
 
 export default function createTransactionForId(req: Request, res: Response) {
   try {
-    const {
-      transactionId,
-      transactionTo,
-      transactionDate,
-      transactionProducts,
-    } = req.body;
+    const { transactionTo, transactionDate, transactionProducts } = req.body;
     const { userId } = req.params; // userId who make the transaction
 
     // calculate the total amount
@@ -21,7 +17,7 @@ export default function createTransactionForId(req: Request, res: Response) {
 
     Transaction.create(
       {
-        transactionId,
+        transactionId: nanoid(),
         transactionFrom: userId,
         transactionTo,
         transactionDate,
