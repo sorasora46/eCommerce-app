@@ -18,6 +18,7 @@ export default function shopRegister(req: Request, res: Response) {
         if (err) return res.send(err.message);
 
         const shop = await Shop.create({
+          userId: user.userId,
           email,
           name,
           profileImage,
