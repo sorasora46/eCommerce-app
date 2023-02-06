@@ -1,8 +1,8 @@
 import { Router } from "express";
 import getShopById from "./controllers/getShopById.js";
 import shopRegister from "./controllers/shopRegister.js";
-import multer from "multer";
 import deleteShopById from "./controllers/deleteShopById.js";
+import multer from "multer";
 
 const router = Router();
 const upload = multer();
