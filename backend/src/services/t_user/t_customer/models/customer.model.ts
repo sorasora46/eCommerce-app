@@ -1,5 +1,13 @@
 import { Schema, model } from "mongoose";
 
+export interface IUpdateCustomer {
+  email?: string;
+  fname?: string;
+  lname?: string;
+  dateOfBirth?: Date;
+  profileImage?: Buffer;
+}
+
 export interface ICustomer {
   userId: string;
   email: string;

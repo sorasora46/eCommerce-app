@@ -1,5 +1,11 @@
 import { Schema, model } from "mongoose";
 
+export interface IUpdateShop {
+  email?: string;
+  name?: string;
+  profileImage?: Buffer;
+}
+
 export interface IShop {
   userId: string;
   email: string;
