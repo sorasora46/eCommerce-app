@@ -1,13 +1,25 @@
 import { Request, Response } from "express";
+import { User } from "../../models/user.model.js";
 import { Customer } from "../models/customer.model.js";
 
 export default function deleteCustomerById(req: Request, res: Response) {
   try {
     const { userId } = req.params;
-    Customer.findOneAndDelete({ userId: userId }, (err: any, result: any) => {
-      if (err) return res.send(err.message);
-      res.send(result);
-    });
+    User.findOneAndDelete(
+      { userId: userId },
+      async (err: any, userResult: any) => {
+        if (err) return res.send(err.message);
+
+        const customerResult = await Customer.findOneAndDelete({
+          userId: userId,
+        });
+
+        res.send({
+          user: userResult,
+          customer: customerResult,
+        });
+      }
+    );
   } catch (err: any) {
     console.log(err.message);
     res.send(err.message);
