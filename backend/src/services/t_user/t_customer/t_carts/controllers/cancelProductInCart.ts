@@ -17,7 +17,7 @@ export default function cancelProductInCart(req: Request, res: Response) {
           return res.send(result);
         }
 
-        return res.send("cannot cancel the product");
+        res.send("cannot cancel the product");
       }
     );
   } catch (err: any) {

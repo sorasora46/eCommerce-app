@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { calculateAge } from "../../../helpers/calculateAge.js";
+import { calculateAge } from "../../../../helpers/calculateAge.js";
 import { Customer } from "../models/customer.model.js";
 
 export default function customerRegister(req: Request, res: Response) {
