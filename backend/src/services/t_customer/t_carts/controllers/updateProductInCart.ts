@@ -7,6 +7,10 @@ export default function updateProductInCart(req: Request, res: Response) {
     const { status, productAmount } = req.body;
 
     const updatedData: IUpdateCart = {};
+    if (status && productAmount)
+      throw new Error(
+        "cannot change status and product amount at the sametime"
+      );
     if (status && !productAmount) updatedData.status = status;
     if (!status && productAmount) updatedData.productAmount = productAmount;
 
