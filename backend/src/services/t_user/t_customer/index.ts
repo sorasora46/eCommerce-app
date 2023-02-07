@@ -1,9 +1,9 @@
 import { Router } from "express";
 import customerRegister from "./controllers/customerRegister.js";
 import getCustomerById from "./controllers/getCustomerById.js";
-import _cartRoute from "./t_carts/index.js";
 import deleteCustomerById from "./controllers/deleteCustomerById.js";
 import updateCustomerById from "./controllers/updateCustomerById.js";
+import _cartRoute from "./t_carts/index.js";
 import multer from "multer";
 
 const router = Router();
