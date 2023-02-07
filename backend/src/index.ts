@@ -1,12 +1,7 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
 import authenticationRoute from "./services/auth/index.js";
-import cartRoute from "./services/carts/index.js";
-import productRoute from "./services/products/index.js";
-import shopRoute from "./services/shops/index.js";
-import transactionRoute from "./services/transactions/index.js";
 import userRoute from "./services/users/index.js";
-import customerRoute from "./services/customers/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import _productRoute from "./services/t_products/index.js";
