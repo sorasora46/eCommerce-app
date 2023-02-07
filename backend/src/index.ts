@@ -12,6 +12,7 @@ import cookieParser from "cookie-parser";
 import _productRoute from "./services/t_products/index.js";
 import _transactionRoute from "./services/t_transactions/index.js";
 import _userRoute from "./services/t_user/index.js";
+import _authRoute from "./services/t_auth/index.js";
 
 const app: Express = express();
 const PORT = 8000;
@@ -54,5 +55,6 @@ mongoose
 app.use("/t_product", _productRoute);
 app.use("/t_transaction", _transactionRoute);
 app.use("/t_user", _userRoute);
+app.use("/t_auth", _authRoute);
 
 app.listen(PORT, domain, () => console.log(`Server running at PORT:${PORT}`));
