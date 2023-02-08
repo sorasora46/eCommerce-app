@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IProduct } from "../../t_products/models/product.model.js";
+import { IProduct } from "../../products/models/product.model.js";
 
 export interface ITransaction {
   transactionId: string;

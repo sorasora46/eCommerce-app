@@ -2,10 +2,10 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import _productRoute from "./services/t_products/index.js";
-import _transactionRoute from "./services/t_transactions/index.js";
-import _userRoute from "./services/t_user/index.js";
-import _authRoute from "./services/t_auth/index.js";
+import productRoute from "./services/products/index.js";
+import transactionRoute from "./services/transactions/index.js";
+import userRoute from "./services/users/index.js";
+import authRoute from "./services/auths/index.js";
 
 const app: Express = express();
 const PORT = 8000;
@@ -37,9 +37,9 @@ mongoose
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error(err.message));
 
-app.use("/t_product", _productRoute);
-app.use("/t_transaction", _transactionRoute);
-app.use("/t_user", _userRoute);
-app.use("/t_auth", _authRoute);
+app.use("/product", productRoute);
+app.use("/transaction", transactionRoute);
+app.use("/user", userRoute);
+app.use("/auth", authRoute);
 
 app.listen(PORT, domain, () => console.log(`Server running at PORT:${PORT}`));

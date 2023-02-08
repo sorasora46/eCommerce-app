@@ -1,6 +1,6 @@
 import { Router } from "express";
 import getProductById from "./controllers/getProductById.js";
-import _shopProductRoute from "./t_shopProductRoute/index.js";
+import _shopProductRoute from "./shopProductRoute/index.js";
 
 const router = Router();
 

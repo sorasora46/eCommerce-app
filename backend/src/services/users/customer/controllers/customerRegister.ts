@@ -1,20 +1,24 @@
 import { Request, Response } from "express";
 import { nanoid } from "nanoid";
+import { calculateAge } from "../../../../helpers/calculateAge.js";
+import { Auth } from "../../../auths/models/auth.model.js";
 import { Role, User } from "../../models/user.model.js";
-import { Shop } from "../models/shop.model.js";
+import { Customer } from "../models/customer.model.js";
 import * as bcrypt from "bcrypt";
-import { Auth } from "../../../t_auth/models/auth.model.js";
 
-export default function shopRegister(req: Request, res: Response) {
+export default function customerRegister(req: Request, res: Response) {
   try {
-    const { email, name, password } = req.body;
+    const { email, fname, lname, dateOfBirth, password } = req.body;
     const profileImage = req.file.buffer;
+
+    const customerAge = calculateAge(new Date(dateOfBirth));
+    if (customerAge < 16) throw new Error("age require atleast 16 years old");
 
     User.create(
       {
         userId: nanoid(),
         email,
-        role: Role.SHOP,
+        role: Role.CUSTOMER,
       },
       async (err: any, user: any) => {
         if (err) return res.send(err.message);
@@ -27,19 +31,23 @@ export default function shopRegister(req: Request, res: Response) {
           hashedPassword,
         });
 
-        const shop = await Shop.create({
+        await Customer.create({
           userId: user.userId,
           email,
-          name,
+          fname,
+          lname,
+          dateOfBirth,
           profileImage,
         });
 
         res.send({
           userId: user.userId,
-          email: user.email,
           role: user.role,
-          name: shop.name,
-          profileImage: shop.profileImage,
+          email,
+          fname,
+          lname,
+          dateOfBirth,
+          profileImage,
         });
       }
     );

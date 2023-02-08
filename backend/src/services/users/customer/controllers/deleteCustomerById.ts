@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Auth } from "../../../auths/models/auth.model.js";
 import { User } from "../../models/user.model.js";
 import { Customer } from "../models/customer.model.js";
 
@@ -11,6 +12,10 @@ export default function deleteCustomerById(req: Request, res: Response) {
         if (err) return res.send(err.message);
 
         const customerResult = await Customer.findOneAndDelete({
+          userId: userId,
+        });
+
+        await Auth.findOneAndDelete({
           userId: userId,
         });
 

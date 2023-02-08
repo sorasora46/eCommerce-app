@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { nanoid } from "nanoid";
-import { IProduct } from "../../t_products/models/product.model.js";
+import { IProduct } from "../../products/models/product.model.js";
 import { Transaction } from "../models/transaction.model.js";
 
 export default function createTransactionForId(req: Request, res: Response) {

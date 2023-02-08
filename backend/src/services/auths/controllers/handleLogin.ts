@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import * as bcrypt from "bcrypt";
 import { Auth } from "../models/auth.model.js";
-import { IUser, User } from "../../t_user/models/user.model.js";
+import { IUser, User } from "../../users/models/user.model.js";
 import jsonwebtoken from "jsonwebtoken";
 
 export default function handleLogin(req: Request, res: Response) {
