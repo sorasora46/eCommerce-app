@@ -1,7 +1,5 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
-import authenticationRoute from "./services/auth/index.js";
-import userRoute from "./services/users/index.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import _productRoute from "./services/t_products/index.js";
@@ -32,20 +30,12 @@ app.use(
     origin: "http://127.0.0.1:5173",
   })
 );
-app.use(cookieParser("very secret cookie_secret string"));
+app.use(cookieParser("replace me with secret from dotenv"));
 
 mongoose
   .connect("mongodb://localhost:27018/eCommerce-app-db")
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error(err.message));
-
-// app.use("/auth", authenticationRoute);
-// app.use("/cart", cartRoute);
-// app.use("/product", productRoute);
-// app.use("/shop", shopRoute);
-// app.use("/transaction", transactionRoute);
-// app.use("/user", userRoute);
-// app.use("/customer", customerRoute);
 
 app.use("/t_product", _productRoute);
 app.use("/t_transaction", _transactionRoute);
