@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
 import { nanoid } from "nanoid";
 import { calculateAge } from "../../../../helpers/calculateAge.js";
+import { Auth } from "../../../t_auth/models/auth.model.js";
 import { Role, User } from "../../models/user.model.js";
 import { Customer } from "../models/customer.model.js";
+import * as bcrypt from "bcrypt";
 
 export default function customerRegister(req: Request, res: Response) {
   try {
-    const { email, fname, lname, dateOfBirth } = req.body;
+    const { email, fname, lname, dateOfBirth, password } = req.body;
     const profileImage = req.file.buffer;
 
     const customerAge = calculateAge(new Date(dateOfBirth));
@@ -20,6 +22,14 @@ export default function customerRegister(req: Request, res: Response) {
       },
       async (err: any, user: any) => {
         if (err) return res.send(err.message);
+
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        await Auth.create({
+          userId: user.userId,
+          hashedPassword,
+        });
 
         await Customer.create({
           userId: user.userId,

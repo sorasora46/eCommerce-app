@@ -2,10 +2,12 @@ import { Request, Response } from "express";
 import { nanoid } from "nanoid";
 import { Role, User } from "../../models/user.model.js";
 import { Shop } from "../models/shop.model.js";
+import * as bcrypt from "bcrypt";
+import { Auth } from "../../../t_auth/models/auth.model.js";
 
 export default function shopRegister(req: Request, res: Response) {
   try {
-    const { email, name } = req.body;
+    const { email, name, password } = req.body;
     const profileImage = req.file.buffer;
 
     User.create(
@@ -16,6 +18,14 @@ export default function shopRegister(req: Request, res: Response) {
       },
       async (err: any, user: any) => {
         if (err) return res.send(err.message);
+
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        await Auth.create({
+          userId: user.userId,
+          hashedPassword,
+        });
 
         const shop = await Shop.create({
           userId: user.userId,
