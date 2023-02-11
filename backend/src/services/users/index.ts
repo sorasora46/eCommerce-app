@@ -6,6 +6,9 @@ import _shopRoute from "./shop/index.js";
 const router = Router();
 
 router.get("/getuser/:userId", getUserById);
+router.post("/report/:userId", reportUserById);
+router.post("/block/:userId", blockUserById);
+router.delete("/unblock/:userId", unBlockUserById);
 router.use("/customer", _customerRoute);
 router.use("/shop", _shopRoute);
 
