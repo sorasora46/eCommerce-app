@@ -21,34 +21,39 @@ export default function customerRegister(req: Request, res: Response) {
         role: Role.CUSTOMER,
       },
       async (err: any, user: any) => {
-        if (err) return res.send(err.message);
+        try {
+          if (err) throw err;
 
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(password, salt);
+          const salt = await bcrypt.genSalt();
+          const hashedPassword = await bcrypt.hash(password, salt);
 
-        await Auth.create({
-          userId: user.userId,
-          hashedPassword,
-        });
+          await Auth.create({
+            userId: user.userId,
+            hashedPassword,
+          });
 
-        await Customer.create({
-          userId: user.userId,
-          email,
-          fname,
-          lname,
-          dateOfBirth,
-          profileImage,
-        });
+          await Customer.create({
+            userId: user.userId,
+            email,
+            fname,
+            lname,
+            dateOfBirth,
+            profileImage,
+          });
 
-        res.send({
-          userId: user.userId,
-          role: user.role,
-          email,
-          fname,
-          lname,
-          dateOfBirth,
-          profileImage,
-        });
+          res.send({
+            userId: user.userId,
+            role: user.role,
+            email,
+            fname,
+            lname,
+            dateOfBirth,
+            profileImage,
+          });
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

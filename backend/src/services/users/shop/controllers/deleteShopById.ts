@@ -9,18 +9,23 @@ export default function deleteShopById(req: Request, res: Response) {
     User.findOneAndDelete(
       { userId: userId },
       async (err: any, userResult: any) => {
-        if (err) return res.send(err.message);
+        try {
+          if (err) throw err;
 
-        const shopResult = await Shop.findOneAndDelete({ userId: userId });
+          const shopResult = await Shop.findOneAndDelete({ userId: userId });
 
-        await Auth.findOneAndDelete({
-          userId: userId,
-        });
+          await Auth.findOneAndDelete({
+            userId: userId,
+          });
 
-        res.send({
-          user: userResult,
-          shop: shopResult,
-        });
+          res.send({
+            user: userResult,
+            shop: shopResult,
+          });
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

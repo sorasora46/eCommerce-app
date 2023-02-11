@@ -7,8 +7,13 @@ export default function getTransactionById(req: Request, res: Response) {
     Transaction.find(
       { transactionFrom: userId },
       (err: any, transactions: any) => {
-        if (err) return res.send(err.message);
+        try {
+        if (err) throw err;
         res.send(transactions);
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

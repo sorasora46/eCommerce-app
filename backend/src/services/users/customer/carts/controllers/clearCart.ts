@@ -5,8 +5,13 @@ export default function clearCart(req: Request, res: Response) {
   try {
     const { userId } = req.params;
     Cart.deleteMany({ userId: userId }, (err: any, result: any) => {
-      if (err) return res.send(err.message);
-      res.send(result);
+      try {
+        if (err) throw err;
+        res.send(result);
+      } catch (err: any) {
+        console.log(err.message);
+        return res.send(err.message);
+      }
     });
   } catch (err: any) {
     console.log(err.message);

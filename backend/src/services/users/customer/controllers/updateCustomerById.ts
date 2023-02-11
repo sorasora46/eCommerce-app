@@ -17,33 +17,43 @@ export default function updateCustomerById(req: Request, res: Response) {
         updatedData,
         { new: true },
         async (err: any, userResult: any) => {
-          if (err) return res.send(err.message);
+          try {
+            if (err) throw err;
 
-          const customerResultEmail = await Customer.findOneAndUpdate(
-            { userId: userId },
-            updatedData,
-            { new: true }
-          );
-
-          if (fname || lname || dateOfBirth || profileImage) {
-            if (fname) updatedData.fname = fname;
-            if (lname) updatedData.lname = lname;
-            if (dateOfBirth) updatedData.dateOfBirth = dateOfBirth;
-            if (profileImage) updatedData.profileImage = profileImage;
-
-            Customer.findOneAndUpdate(
+            const customerResultEmail = await Customer.findOneAndUpdate(
               { userId: userId },
               updatedData,
-              { new: true },
-              (err: any, customerResult: any) => {
-                if (err) return res.send(err.message);
-                res.send({ user: userResult, customer: customerResult });
-              }
+              { new: true }
             );
-            return;
-          }
 
-          res.send({ user: userResult, customer: customerResultEmail });
+            if (fname || lname || dateOfBirth || profileImage) {
+              if (fname) updatedData.fname = fname;
+              if (lname) updatedData.lname = lname;
+              if (dateOfBirth) updatedData.dateOfBirth = dateOfBirth;
+              if (profileImage) updatedData.profileImage = profileImage;
+
+              Customer.findOneAndUpdate(
+                { userId: userId },
+                updatedData,
+                { new: true },
+                (err: any, customerResult: any) => {
+                  try {
+                    if (err) throw err;
+                    res.send({ user: userResult, customer: customerResult });
+                  } catch (err: any) {
+                    console.log(err.message);
+                    return res.send(err.message);
+                  }
+                }
+              );
+              return;
+            }
+
+            res.send({ user: userResult, customer: customerResultEmail });
+          } catch (err: any) {
+            console.log(err.message);
+            return res.send(err.message);
+          }
         }
       );
     } else {
@@ -57,8 +67,13 @@ export default function updateCustomerById(req: Request, res: Response) {
         updatedData,
         { new: true },
         (err: any, result: any) => {
-          if (err) return res.send(err.message);
-          res.send(result);
+          try {
+            if (err) throw err;
+            res.send(result);
+          } catch (err: any) {
+            console.log(err.message);
+            return res.send(err.message);
+          }
         }
       );
     }

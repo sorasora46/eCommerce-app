@@ -18,8 +18,13 @@ export default function updateProductById(req: Request, res: Response) {
       updatedData,
       { new: true },
       (err: any, result: any) => {
-        if (err) return res.send(err.message);
-        res.send(result);
+        try {
+          if (err) throw err;
+          res.send(result);
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

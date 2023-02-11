@@ -7,17 +7,22 @@ export default function cancelProductInCart(req: Request, res: Response) {
     Cart.findOne(
       { userId: userId, productId: productId },
       async (err: any, product: any) => {
-        if (err) return res.send(err.message);
+        try {
+          if (err) throw err;
 
-        if (product.status === CartProductStatus.WAITING) {
-          const result = await Cart.findOneAndDelete({
-            userId: userId,
-            productId: productId,
-          });
-          return res.send(result);
+          if (product.status === CartProductStatus.WAITING) {
+            const result = await Cart.findOneAndDelete({
+              userId: userId,
+              productId: productId,
+            });
+            return res.send(result);
+          }
+
+          res.send("cannot cancel the product");
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
         }
-
-        res.send("cannot cancel the product");
       }
     );
   } catch (err: any) {

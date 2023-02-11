@@ -9,20 +9,25 @@ export default function deleteCustomerById(req: Request, res: Response) {
     User.findOneAndDelete(
       { userId: userId },
       async (err: any, userResult: any) => {
-        if (err) return res.send(err.message);
+        try {
+          if (err) throw err;
 
-        const customerResult = await Customer.findOneAndDelete({
-          userId: userId,
-        });
+          const customerResult = await Customer.findOneAndDelete({
+            userId: userId,
+          });
 
-        await Auth.findOneAndDelete({
-          userId: userId,
-        });
+          await Auth.findOneAndDelete({
+            userId: userId,
+          });
 
-        res.send({
-          user: userResult,
-          customer: customerResult,
-        });
+          res.send({
+            user: userResult,
+            customer: customerResult,
+          });
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

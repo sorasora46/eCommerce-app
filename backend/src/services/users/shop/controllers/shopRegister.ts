@@ -17,30 +17,35 @@ export default function shopRegister(req: Request, res: Response) {
         role: Role.SHOP,
       },
       async (err: any, user: any) => {
-        if (err) return res.send(err.message);
+        try {
+          if (err) throw err;
 
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(password, salt);
+          const salt = await bcrypt.genSalt();
+          const hashedPassword = await bcrypt.hash(password, salt);
 
-        await Auth.create({
-          userId: user.userId,
-          hashedPassword,
-        });
+          await Auth.create({
+            userId: user.userId,
+            hashedPassword,
+          });
 
-        const shop = await Shop.create({
-          userId: user.userId,
-          email,
-          name,
-          profileImage,
-        });
+          const shop = await Shop.create({
+            userId: user.userId,
+            email,
+            name,
+            profileImage,
+          });
 
-        res.send({
-          userId: user.userId,
-          email: user.email,
-          role: user.role,
-          name: shop.name,
-          profileImage: shop.profileImage,
-        });
+          res.send({
+            userId: user.userId,
+            email: user.email,
+            role: user.role,
+            name: shop.name,
+            profileImage: shop.profileImage,
+          });
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

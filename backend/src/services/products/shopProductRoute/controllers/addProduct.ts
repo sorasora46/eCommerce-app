@@ -18,9 +18,14 @@ export default function addProduct(req: Request, res: Response) {
         productImage,
       },
       (err: any, result: any) => {
-        if (err) return res.send(err.message);
-        console.log(result);
-        res.send(result);
+        try {
+          if (err) throw err;
+          console.log(result);
+          res.send(result);
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

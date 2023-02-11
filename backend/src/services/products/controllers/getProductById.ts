@@ -5,9 +5,14 @@ export default function getProductById(req: Request, res: Response) {
   try {
     const { productId } = req.params;
     Product.findOne({ productId: productId }, (err: any, product: any) => {
-      if (err) return res.send(err.message);
-      console.log(product);
-      res.send(product);
+      try {
+        if (err) throw err;
+        console.log(product);
+        res.send(product);
+      } catch (err: any) {
+        console.log(err.message);
+        return res.send(err.message);
+      }
     });
   } catch (err: any) {
     console.log(err.message);

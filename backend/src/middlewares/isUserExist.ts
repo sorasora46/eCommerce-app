@@ -9,8 +9,13 @@ export default function isUserExist(
   try {
     const { userId } = req.params;
     User.findOne({ userId: userId }, (err: any, result: any) => {
-      if (err) return res.send(err.message);
-      next();
+      try {
+        if (err) throw err;
+        next();
+      } catch (err: any) {
+        console.log(err.message);
+        return res.send(err.message);
+      }
     });
   } catch (err: any) {
     console.log(err.message);

@@ -7,8 +7,13 @@ export default function removeProductById(req: Request, res: Response) {
     Product.findOneAndDelete(
       { productId: productId, productOwner: userId },
       (err: any, result: any) => {
-        if (err) return res.send(err.message);
+        try {
+        if (err) throw err;
         res.send(result);
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (err: any) {

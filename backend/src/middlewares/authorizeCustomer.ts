@@ -12,8 +12,13 @@ export default function authorizeCustomer(
     User.findOne(
       { userId: userId, role: Role.CUSTOMER },
       (err: any, result: any) => {
-        if (err) return res.send(err.message);
-        next();
+        try {
+          if (err) throw err;
+          next();
+        } catch (err: any) {
+          console.log(err.message);
+          return res.send(err.message);
+        }
       }
     );
   } catch (error: any) {

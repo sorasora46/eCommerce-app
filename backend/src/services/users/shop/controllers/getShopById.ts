@@ -6,17 +6,22 @@ export default function getShopById(req: Request, res: Response) {
   try {
     const { userId } = req.params;
     User.findOne({ userId: userId }, async (err: any, user: any) => {
-      if (err) return res.send(err.message);
+      try {
+        if (err) throw err;
 
-      const shop = await Shop.findOne({ userId: userId });
+        const shop = await Shop.findOne({ userId: userId });
 
-      res.send({
-        userId: user.userId,
-        email: user.email,
-        role: user.role,
-        name: shop.name,
-        profileImage: shop.profileImage,
-      });
+        res.send({
+          userId: user.userId,
+          email: user.email,
+          role: user.role,
+          name: shop.name,
+          profileImage: shop.profileImage,
+        });
+      } catch (err: any) {
+        console.log(err.message);
+        return res.send(err.message);
+      }
     });
   } catch (err: any) {
     console.log(err.message);

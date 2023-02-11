@@ -9,22 +9,27 @@ export default function handleLogin(req: Request, res: Response) {
     const { email, password } = req.body;
 
     User.findOne({ email: email }, async (err: any, user: any) => {
-      if (err) return res.send(err.message);
+      try {
+        if (err) throw err;
 
-      const userAuth = await Auth.findOne({ userId: user.userId });
-      const isValid = await bcrypt.compare(password, userAuth.hashedPassword);
+        const userAuth = await Auth.findOne({ userId: user.userId });
+        const isValid = await bcrypt.compare(password, userAuth.hashedPassword);
 
-      if (isValid) {
-        return res
-          .cookie("access_token", `Bearer ${createLoginToken(user)}`, {
-            maxAge: 3600000 * 6, // 6 hours
-            signed: true,
-            httpOnly: true,
-          })
-          .send("login success");
+        if (isValid) {
+          return res
+            .cookie("access_token", `Bearer ${createLoginToken(user)}`, {
+              maxAge: 3600000 * 6, // 6 hours
+              signed: true,
+              httpOnly: true,
+            })
+            .send("login success");
+        }
+
+        res.status(401).send("not authenticated");
+      } catch (err: any) {
+        console.log(err.message);
+        return res.send(err.message);
       }
-
-      res.status(401).send("not authenticated");
     });
   } catch (err: any) {
     console.log(err.message);
