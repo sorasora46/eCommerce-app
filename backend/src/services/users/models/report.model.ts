@@ -11,13 +11,13 @@ export enum ReportReason {
 
 export interface IReport {
   reportBy: string; // userId
-  userReported: string; // userId
+  reportedUser: string; // userId
   reason: ReportReason;
 }
 
 const reportSchema = new Schema<IReport>({
   reportBy: { type: String, required: true },
-  userReported: { type: String, required: true },
+  reportedUser: { type: String, required: true },
   reason: { type: String, required: true },
 });
 
