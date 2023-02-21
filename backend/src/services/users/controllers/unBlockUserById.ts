@@ -14,7 +14,23 @@ export default function unBlockUserById(req: Request, res: Response) {
 
       if (blockedUser === user.userId)
         return res.status(400).send("cannot block yourself");
-    // need block logic
+      // need block logic
+      User.findOneAndUpdate(
+        { userId: user.userId },
+        {
+          blockList: [...user.blockList.filter((item: string) => item !== blockedUser)],
+        },
+        { new: true },
+        (err: any, result: any) => {
+          try {
+            if (err) throw err;
+            res.send(result);
+          } catch (err: any) {
+            console.log(err.message);
+            return res.send(err.message);
+          }
+        }
+      );
     });
   } catch (err: any) {
     console.log(err.message);
