@@ -6,6 +6,7 @@ export default function blockUserById(req: Request, res: Response) {
   try {
     const access_token = req.signedCookies.access_token;
     const blockedUser = req.params.userId;
+    
     getUserInfoFromToken(access_token, async (err: any, user: any) => {
       if (err) throw err;
 
@@ -14,7 +15,7 @@ export default function blockUserById(req: Request, res: Response) {
 
       if (blockedUser === user.userId)
         return res.status(400).send("cannot block yourself");
-      // need block logic
+
       User.findOneAndUpdate(
         { userId: user.userId },
         { blockList: [...user.blockList, blockedUser] },
