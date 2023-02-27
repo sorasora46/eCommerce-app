@@ -26,6 +26,7 @@ export const Profile = () => {
   const [file, setFile] = useState<any>(null);
   const [fileName, setFileName] = useState<string>("");
 
+  // TODO: Change API endpoint
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/user/getuser/${userId}`, {

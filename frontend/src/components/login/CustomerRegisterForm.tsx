@@ -38,6 +38,7 @@ export const CustomerRegisterForm: FC<{}> = ({}) => {
     formData.set("name", JSON.stringify({ fname: fname, lname: lname }));
     formData.set("dateOfBirth", dateOfBirth);
 
+  // TODO: Change API endpoint
     axios
       .post("http://127.0.0.1:8000/user/register", formData)
       .then((res) => {

@@ -12,6 +12,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
 
   function handleLogin() {
+  // TODO: Change API endpoint
     axios
       .post(
         "http://127.0.0.1:8000/auth/login",

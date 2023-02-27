@@ -24,6 +24,7 @@ export const ProductShowcase = () => {
   };
 
   function initShowcase() {
+  // TODO: Change API endpoint
     axios
       .get("http://127.0.0.1:8000/product/getproducts", {
         withCredentials: true,

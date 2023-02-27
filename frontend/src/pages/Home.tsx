@@ -8,6 +8,7 @@ export const Home = () => {
   const [searchText, setSearchText] = useState("");
 
   function handleSearch() {
+  // TODO: Change API endpoint
     axios
       .get(`http://127.0.0.1:8000/product/search?text=${searchText}`)
       .then((res) => console.log(res.data))

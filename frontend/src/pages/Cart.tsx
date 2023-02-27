@@ -11,6 +11,7 @@ export const Cart = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState<any>([]);
 
+  // TODO: Change API endpoint
   useEffect(() => {
     const fetchCart = () => {
       axios

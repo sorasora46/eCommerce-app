@@ -29,6 +29,7 @@ export const ShopRegisterForm: FC<{}> = ({}) => {
     formData.set("role", role);
     formData.set("name", name);
 
+  // TODO: Change API endpoint
     axios
       .post("http://127.0.0.1:8000/user/register", formData)
       .then((res) => {

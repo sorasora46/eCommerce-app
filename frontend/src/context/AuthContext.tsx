@@ -9,6 +9,7 @@ export const AuthContextProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const [user, setUser] = useState({});
 
+  // TODO: change API endopoint
   useLayoutEffect(() => {
     axios
       .get("http://127.0.0.1:8000/user/getuser", { withCredentials: true })

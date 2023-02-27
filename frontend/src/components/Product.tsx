@@ -39,6 +39,7 @@ export const Product: FC<{ product: any; onClick: MouseEventHandler }> = ({
       return;
     }
 
+  // TODO: Change API endpoint
     axios
       .post(
         "http://127.0.0.1:8000/cart/additem",
