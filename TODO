@@ -1,0 +1,19 @@
+Backend
+Total services: 7
+
+1. customer done
+2. shop done
+3. product done
+4. cart done
+5. user done
+6. auth done
+7. transaction (need stripe)
+8. chat
+
+if user already login then refuse to go to /login
+
+TODO: Check if user exist in transaction, product, cart (create middleware) (need testing)
+TODO: Handling authorization (need testing)
+TODO: Create block user, report user endpoints in User service (need testing)
+
+TODO: Testing library
